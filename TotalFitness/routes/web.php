@@ -13,7 +13,10 @@
 
 Route::get('/', 'PagesContorller@index');
 
-
 Route::get('/about', 'PagesContorller@about');
 
 Route::resource('posts', 'PostsController');
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
