@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Create Post</h1>
-    {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['NewsfeedController@update', $post->id], 'method' => 'POST']) !!}
     <div class="form-group">
             {{ Form::label('title', 'Title') }}
             {{ Form::text('title', $post->title, ['class' => 'form-control', 'placeholder' => 'title']) }}

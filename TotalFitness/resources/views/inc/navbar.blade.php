@@ -37,35 +37,33 @@
                                     </a>
                                 </li>
                             </ul>
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#pablo">
-                                        <span class="no-icon">Account</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="no-icon">Dropdown</span>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./logout.php">
-                                        <span class="no-icon">Log out</span>
-                                    </a>
-                                </li>
-    
-                            </ul>
-                            <?php
 
-    ?>
+                            <!-- Right Side Of Navbar -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <!-- Authentication Links -->
+                                @if (Auth::guest())
+                                    <li><a href="{{ route('login') }}">Login</a></li>
+                                    <li><a href="{{ route('register') }}">Register</a></li>
+                                @else
+                                    <li class="dropdown">
+                                        Welcome,
+                                        <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                            {{ Auth::user()->name }} 
+                                        </a>
+                
+                                        
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            <button type="button" class="btn btn-default" aria-pressed="true"><strong>Logout</strong></button>
+                                        </a>
+        
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                @endif
+                            </ul>
                         </div>
                     </div>
                 </nav>

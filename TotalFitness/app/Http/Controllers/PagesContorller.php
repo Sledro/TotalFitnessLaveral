@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
-
+use App\Post;
 class PagesContorller extends Controller
 {
     public function index(){
-        return view('pages.index');
+        if(Auth::guest()){
+            return view('pages.index');
+        }
+        else{
+            return redirect ('/newsfeed');
+        }
     }
 
     public function about(){
@@ -15,6 +20,6 @@ class PagesContorller extends Controller
             'title' => 'Services',
             'services' => ['Web Design', 'Programming', 'SEO']
         );
-        return view('pages.about')->with($data);
+        return view('newsfeed.about')->with($data);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class DashboardController extends Controller
 {
@@ -23,6 +24,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $posts =  Post::orderBy('title', 'asc')->take(10)->get();
+        return view('posts.index')->with('posts', $posts);
     }
+
+
 }
