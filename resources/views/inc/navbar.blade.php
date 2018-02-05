@@ -23,35 +23,13 @@
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                            <ul class="nav navbar-nav mr-auto">
-                                    <li class="nav-item">
-                                            <a href="#" class="nav-link" data-toggle="dropdown">
-                                                <i class="nc-icon nc-palette"></i>
-                                                <span class="d-lg-none">Dashboard</span>
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="dropdown nav-item">
-                                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                                <i class="nc-icon nc-planet"></i>
-                                                <span class="notification">5</span>
-                                                <span class="d-lg-none">Notification</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Notification 1</a>
-                                                <a class="dropdown-item" href="#">Notification 2</a>
-                                                <a class="dropdown-item" href="#">Notification 3</a>
-                                                <a class="dropdown-item" href="#">Notification 4</a>
-                                                <a class="dropdown-item" href="#">Another notification</a>
-                                            </ul>
-                                        </li>
-                                    </ul>
+
                             <!-- Right Side Of Navbar -->
                           
                                 <!-- Authentication Links -->
                                 @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('register') }}">Register</a></li>
+                                    <a href="{{ route('login') }}"><button type="button" class="btn btn-primary" aria-pressed="true"><strong>Login</strong></button></a>
+                                    <a href="{{ route('register') }}"> <button type="button" class="btn btn-default" aria-pressed="true"><strong>Register</strong></button></a>
                                 @else
                                     <li class="dropdown">
                                         Welcome,

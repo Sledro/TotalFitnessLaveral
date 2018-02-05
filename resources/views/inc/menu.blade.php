@@ -6,7 +6,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="./index.php" class="simple-text">
-                        Total Fitness
+                        <img src="{{ asset('img/TFLogo.png') }}"/>
                     </a>
                 </div>
                 <ul class="nav">
