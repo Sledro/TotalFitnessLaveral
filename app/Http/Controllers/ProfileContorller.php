@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 
 class ProfileContorller extends Controller
 {
@@ -47,9 +48,10 @@ class ProfileContorller extends Controller
     public function show($username)
     {
         $user = User::whereUsername($username)->first();
-
+        $posts =  Post::orderBy('id', 'desc')->take(10)->get();
+        
         if($user){
-            return view('profile.index')->withUser($user);
+            return view('profile.index')->withUser($user)->with('posts', $posts);;
         }else{
            return false;
         }

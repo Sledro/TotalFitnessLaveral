@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card " style="padding:20px;">
                 {!! Form::open(['action' => 'NewsfeedController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
@@ -11,18 +11,18 @@
                         {{ Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'What are you up too.....']) }}
                 </div>
                 <center>
-                {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+                {{ Form::submit('Submit Post', ['class' => 'btn btn-primary']) }}
                 {!! Form::close() !!}
                 <center>
                 </div>
             </div>
         </div>
     </div>
-    @if(count($posts) > 1)  
+    @if(count($posts) >= 1)  
         @foreach($posts as $post)
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
+
+          
+                <div class="col-md-6">
                     <div class="card ">
                         <div class="card-header ">
                             <h4 class="card-title">Dan Hayden says:</h4>
@@ -51,8 +51,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+    
+
         @endforeach
     @else
         No posts.
