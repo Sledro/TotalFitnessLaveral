@@ -25,25 +25,28 @@
                 <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">Dan Hayden</h4>
-                            <p class="card-category">{{$post->body}}</p>
+                            <h4 class="card-title">Dan Hayden says:</h4>
                         </div>
                         <div class="card-body ">
-                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                            <h1 class="card-title">{{$post->body}}</h1>
                         </div>
                         <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> Written on: {{$post->created_at}}
-                                <i class="fa fa-circle text-danger"></i> <a href="/newsfeed/{{$post->id}}/edit">Edit</a>
-                                <i class="fa fa-circle text-warning"></i> 
-                                {!!Form::open(['action' => ['NewsfeedController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                    {{Form::hidden('_method', 'DELETE')}}
-                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                {!!Form::close()!!}
-                            </div>
+ 
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                             
+                                <div class="legend">
+                                    <i class="fa fa-clock-o"></i>  Written on: {{$post->created_at}}
+                                    <a href="/newsfeed/{{$post->id}}/edit">
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-edit"></span> Edit
+                                      </button>
+                                    </a>
+                                    {!!Form::open(['action' => ['NewsfeedController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                        {{Form::hidden('_method', 'DELETE')}}
+                                        {{Form::submit('Delete', ['class' => 'btn btn-default btn-sm'])}}
+                                    {!!Form::close()!!}
+                                </div>
                             </div>
                         </div>
                     </div>

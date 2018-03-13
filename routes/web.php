@@ -20,3 +20,5 @@ Auth::routes();
 Route::resource('newsfeed', 'NewsfeedController');
 
 Route::get('/newsfeed', 'NewsfeedController@index')->middleware('auth');
+
+Route::get('/profile/{username}', 'ProfileContorller@show')->name('profile.show');

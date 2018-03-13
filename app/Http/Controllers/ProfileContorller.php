@@ -1,12 +1,11 @@
 <?php
-//php artisan make:controller PostsContorller --resource
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
 
-class NewsfeedController extends Controller
+class ProfileContorller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class NewsfeedController extends Controller
      */
     public function index()
     {
-        $posts =  Post::orderBy('id', 'desc')->take(10)->get();
-        return view('newsfeed.index')->with('posts', $posts);
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class NewsfeedController extends Controller
      */
     public function create()
     {
-        return view('newsfeed.create');
+        //
     }
 
     /**
@@ -37,15 +35,7 @@ class NewsfeedController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'body' => 'required'
-        ]);
-        
-        $post = new Post;
-        $post->body = $request->input('body');
-        $post->save();
-
-        return redirect ('/newsfeed')->with('success', "Post Created!");
+        //
     }
 
     /**
@@ -54,9 +44,15 @@ class NewsfeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($username)
     {
-        //
+        $user = User::whereUsername($username);
+
+        if($user){
+            return view('profile.index')->withUser($user);
+        }else{
+            dd($user);
+        }
     }
 
     /**
@@ -67,8 +63,7 @@ class NewsfeedController extends Controller
      */
     public function edit($id)
     {
-        $post =  Post::find($id);
-        return view('newsfeed.edit')->with('post', $post);
+        //
     }
 
     /**
@@ -80,15 +75,7 @@ class NewsfeedController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'body' => 'required'
-        ]);
-        
-        $post = Post::find($id);
-        $post->body = $request->input('body');
-        $post->save();
-
-        return redirect ('/newsfeed')->with('success', "Post Updated!");
+        //
     }
 
     /**
@@ -99,8 +86,6 @@ class NewsfeedController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post->delete;
-        return redirect ('/newsfeed')->with('success', "Post Updated!");
+        //
     }
 }
