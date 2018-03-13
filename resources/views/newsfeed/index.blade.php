@@ -7,8 +7,8 @@
                 <div class="card " style="padding:20px;">
                 {!! Form::open(['action' => 'NewsfeedController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
-                        {{ Form::label('body', 'Body') }}
-                        {{ Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'What are you up too.....']) }}
+                    <h4>Share photos, acheivements or simply whatever is on your mind:</h4>
+                    {{ Form::textarea('body', '', ['class' => 'form-control', 'rows' => 2, 'placeholder' => 'What are you up too.....']) }}
                 </div>
                 <center>
                 {{ Form::submit('Submit Post', ['class' => 'btn btn-primary']) }}

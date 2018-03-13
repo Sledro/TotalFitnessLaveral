@@ -6,7 +6,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="./index.php" class="simple-text">
-                        <img src="{{ asset('img/TFLogo.png') }}"/>
+                        <img src="{{ asset('img/TF-Logo.png') }}"/>
                     </a>
                 </div>
                 <ul class="nav">
