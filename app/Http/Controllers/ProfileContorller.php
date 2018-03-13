@@ -46,12 +46,12 @@ class ProfileContorller extends Controller
      */
     public function show($username)
     {
-        $user = User::whereUsername($username);
+        $user = User::whereUsername($username)->first();
 
         if($user){
             return view('profile.index')->withUser($user);
         }else{
-            dd($user);
+           return false;
         }
     }
 

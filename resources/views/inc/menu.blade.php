@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#">
+                    <a class="nav-link" href="/profile/@auth{{Auth::user()->username}}@endauth">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>My Profile</p>
                         </a>

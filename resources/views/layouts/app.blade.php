@@ -17,17 +17,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
+
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-
-            <!-- Scripts -->
-            <script src="{{ asset('js/light-bootstrap-dashboard.js') }}"></script>
-            <!--   Core JS Files   -->
-            <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-            <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/light-bootstrap-dashboard.js') }}"></script>
+    <!--   Core JS Files   -->
+    <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 
             <link href="{{ asset('fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf') }}" rel="tff" />
 </head>
