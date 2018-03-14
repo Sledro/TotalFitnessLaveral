@@ -9,6 +9,7 @@
                 <div class="form-group">
                     <h4>Share photos, acheivements or simply whatever is on your mind:</h4>
                     {{ Form::textarea('body', '', ['class' => 'form-control', 'rows' => 2, 'placeholder' => 'What are you up too.....']) }}
+                    {{Form::hidden('userid', Auth::user()->id)}}
                 </div>
                 <center>
                 {{ Form::submit('Submit Post', ['class' => 'btn btn-primary']) }}
@@ -18,43 +19,8 @@
             </div>
         </div>
     </div>
-    @if(count($posts) >= 1)  
-        @foreach($posts as $post)
-
-          
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">Dan Hayden says:</h4>
-                        </div>
-                        <div class="card-body ">
-                            <h1 class="card-title">{{$post->body}}</h1>
-                        </div>
-                        <div class="card-footer ">
- 
-                            <hr>
-                            <div class="stats">
-                             
-                                <div class="legend">
-                                    <i class="fa fa-clock-o"></i>  Written on: {{$post->created_at}}
-                                    <a href="/newsfeed/{{$post->id}}/edit">
-                                    <button type="button" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-edit"></span> Edit
-                                      </button>
-                                    </a>
-                                    {!!Form::open(['action' => ['NewsfeedController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                        {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class' => 'btn btn-default btn-sm'])}}
-                                    {!!Form::close()!!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-
-        @endforeach
-    @else
-        No posts.
-    @endif
+    <div class="col-md-6">
+        <!--Includes the layout feed that is also on the users profile!-->
+        @include('layouts.feed') 
+    </div>
 @endsection

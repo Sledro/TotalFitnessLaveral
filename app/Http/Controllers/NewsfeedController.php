@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class NewsfeedController extends Controller
 {
@@ -16,6 +17,7 @@ class NewsfeedController extends Controller
     public function index()
     {
         $posts =  Post::orderBy('id', 'desc')->take(10)->get();
+      
         return view('newsfeed.index')->with('posts', $posts);
     }
 
@@ -38,11 +40,13 @@ class NewsfeedController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'body' => 'required'
+            'body' => 'required',
+            'userid' => 'required'
         ]);
         
         $post = new Post;
         $post->body = $request->input('body');
+        $post->userid = $request->input('userid');
         $post->save();
 
         return redirect ('/newsfeed')->with('success', "Post Created!");
@@ -56,7 +60,7 @@ class NewsfeedController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
