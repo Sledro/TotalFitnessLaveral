@@ -27,11 +27,6 @@
                     <div class="hidden-xs">Favorites</div>
                 </button>
             </div>
-            <div class="btn-group" role="group">
-                <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    <div class="hidden-xs">Following</div>
-                </button>
-            </div>
         </div>
 
         <div class="well">
@@ -39,7 +34,7 @@
                 <div class="tab-pane fade in active" id="tab1">
                     <div class="panel-body">
                         <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"> Following </div>
+ 
                             <div class=" col-md-9 col-lg-9 "> 
                                 <table class="table table-user-information">
                                 <tbody>
@@ -66,9 +61,14 @@
                                     </tr>
                                 </tbody>
                                 </table>
-                                
-                                <a href="#" class="btn btn-primary">Follow</a>
+             
                                 <a href="#" class="btn btn-primary">Private Message</a>
+                                <a href="#" class="btn btn-primary">Private Message</a>
+                                {!! Form::open(['action' => ['UserController@follow', $user->username], 'method' => 'POST']) !!}
+                                {{Form::hidden('userID', $user->id)}}
+                                {{Form::hidden('followerID', Auth::user()->id)}}   
+                                {{ Form::submit('Follow ', ['class' => 'btn btn-primary']) }}
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

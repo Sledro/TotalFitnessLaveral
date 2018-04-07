@@ -1,10 +1,10 @@
 <?php
-//php artisan make:controller PostsContorller --resource
+//php artisan make:controller NewsfeedContorller --resource
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\Newsfeed;
 use App\User;
 
 class NewsfeedController extends Controller
@@ -16,7 +16,7 @@ class NewsfeedController extends Controller
      */
     public function index()
     {
-        $posts =  Post::orderBy('id', 'desc')->take(10)->get();
+        $posts =  Newsfeed::orderBy('id', 'desc')->take(10)->get();
       
         return view('newsfeed.index')->with('posts', $posts);
     }
@@ -44,7 +44,7 @@ class NewsfeedController extends Controller
             'userid' => 'required'
         ]);
         
-        $post = new Post;
+        $post = new Newsfeed;
         $post->body = $request->input('body');
         $post->userid = $request->input('userid');
         $post->save();
@@ -71,7 +71,7 @@ class NewsfeedController extends Controller
      */
     public function edit($id)
     {
-        $post =  Post::find($id);
+        $post =  Newsfeed::find($id);
         return view('newsfeed.edit')->with('post', $post);
     }
 
@@ -88,7 +88,7 @@ class NewsfeedController extends Controller
             'body' => 'required'
         ]);
         
-        $post = Post::find($id);
+        $post = Newsfeed::find($id);
         $post->body = $request->input('body');
         $post->save();
 
@@ -103,7 +103,7 @@ class NewsfeedController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $post = Newsfeed::find($id);
         $post->delete;
         return redirect ('/newsfeed')->with('success', "Post Updated!");
     }

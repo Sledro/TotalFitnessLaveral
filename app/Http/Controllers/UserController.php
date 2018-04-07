@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Post;
+use App\Newsfeed;
 
-class ProfileContorller extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -48,10 +48,10 @@ class ProfileContorller extends Controller
     public function show($username)
     {
         $user = User::whereUsername($username)->first();
-        $posts =  Post::orderBy('id', 'desc')->take(10)->get();
+        $posts =  Newsfeed::orderBy('id', 'desc')->take(10)->get();
         
         if($user){
-            return view('profile.index')->withUser($user)->with('posts', $posts);;
+            return view('user.index')->withUser($user)->with('posts', $posts);;
         }else{
            return false;
         }
@@ -89,5 +89,27 @@ class ProfileContorller extends Controller
     public function destroy($id)
     {
         //
+    }
+
+/**
+ * Follow the user.
+ *
+ * @param $profileId
+ *
+ */
+public function follow(Request $request)
+{
+
+
+    \DB::table('user_followers')->insert([
+        [
+            'user_id'             => $request->input('userID'),
+            'follower_id' => $request->input('followerID'),
+            'created_at'       => date('Y-m-d H:i:s'),
+            'updated_at'       => date('Y-m-d H:i:s')
+        ]
+    ]);
+    
+    return redirect()->back()->with('success', 'Successfully followed the user.');
     }
 }

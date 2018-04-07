@@ -38,6 +38,6 @@
 @endforeach
 @else
     <div class="card ">
-        No posts.
+       Here you will see posts from people you follow on your feed. To begin follow a friend or person of intrest.
     </div>
 @endif
