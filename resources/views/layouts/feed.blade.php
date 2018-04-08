@@ -8,7 +8,7 @@
                         <div class="float-left">
                             <img class="usravatar" src="{{asset('img/avatars/default-avatar.png')}}">
                         </div>
-                <h4 class="card-title" style="padding:20px;margin-left:55px;"><a href="/profile/{{$post->users->username}}">{{$post->users->name}}</a> says:</h4>
+                <h4 class="card-title" style="padding:20px;margin-left:55px;"><a href="/user/{{$post->users->username}}">{{$post->users->name}}</a> says:</h4>
                 </div>
                 <div class="card-body ">
                     <h1 class="card-title">{{$post->body}}</h1>
