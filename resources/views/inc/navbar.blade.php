@@ -33,7 +33,7 @@
                                 @else
                                  
                                         Welcome,
-                                        <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                        <a href="/user/"  data-toggle="dropdown" role="button" aria-expanded="false">
                                             {{ Auth::user()->name }} 
                                         </a>
                 

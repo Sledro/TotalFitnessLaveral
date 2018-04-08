@@ -19,12 +19,12 @@
         <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
             <div class="btn-group" role="group">
                 <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <div class="hidden-xs">Stars</div>
+                    <div class="hidden-xs">Profile Information</div>
                 </button>
             </div>
             <div class="btn-group" role="group">
                 <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                    <div class="hidden-xs">Favorites</div>
+                    <div class="hidden-xs">Followers</div>
                 </button>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <div class="panel-body">
                         <div class="row">
  
-                            <div class=" col-md-9 col-lg-9 "> 
+                            <div class=" col-md-9 col-lg-9 " style="float:right;"> 
                                 <table class="table table-user-information">
                                 <tbody>
                                     <tr>
@@ -61,14 +61,14 @@
                                     </tr>
                                 </tbody>
                                 </table>
-             
-                                <a href="#" class="btn btn-primary">Private Message</a>
-                                <a href="#" class="btn btn-primary">Private Message</a>
-                                {!! Form::open(['action' => ['UserController@follow', $user->username], 'method' => 'POST']) !!}
-                                {{Form::hidden('userID', $user->id)}}
-                                {{Form::hidden('followerID', Auth::user()->id)}}   
-                                {{ Form::submit('Follow ', ['class' => 'btn btn-primary']) }}
-                                {!! Form::close() !!}
+                                @if (Auth::guest())
+                                    <a href="#" class="btn btn-primary" style="float:left;margin-right:10px;">Private Message</a>
+                                    {!! Form::open(['action' => ['UserController@follow', $user->username], 'method' => 'POST']) !!}
+                                    {{Form::hidden('userID', $user->id)}}
+                                    {{Form::hidden('followerID', Auth::user()->id)}}   
+                                    {{ Form::submit('Follow ', ['class' => 'btn btn-primary']) }}
+                                    {!! Form::close() !!}
+                                @endif
                             </div>
                         </div>
                     </div>
