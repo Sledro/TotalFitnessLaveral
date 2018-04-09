@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Post</h1>
+    <h1>Edit Post</h1>
     {!! Form::open(['action' => ['NewsfeedController@update', $post->id], 'method' => 'POST']) !!}
     <div class="form-group">
             {{ Form::label('title', 'Title') }}

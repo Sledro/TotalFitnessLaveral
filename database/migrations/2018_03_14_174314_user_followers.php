@@ -16,7 +16,7 @@ class UserFollowers extends Migration
         Schema::create('user_followers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->mediumText('follower_id');
+            $table->integer('follower_id');
             $table->timestamps();
         });
     }

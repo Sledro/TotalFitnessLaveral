@@ -19,6 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('isTrainer');
+            $table->integer('trainerID');
+            $table->string('street');
+            $table->string('town');
+            $table->string('country');
+            $table->string('profession');
+            $table->string('gender');
             $table->rememberToken();
             $table->timestamps();
         });
