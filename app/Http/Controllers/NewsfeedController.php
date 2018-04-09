@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Newsfeed;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class NewsfeedController extends Controller
 {
@@ -16,8 +17,14 @@ class NewsfeedController extends Controller
      */
     public function index()
     {
-        $posts =  Newsfeed::orderBy('id', 'desc')->take(10)->get();
-      
+        $userID=Auth::user()->id;
+        $userID2=Auth::user()->id;
+        $posts = Newsfeed::select('*')
+		->from('posts')
+        ->whereRaw('userid IN ( SELECT user_id FROM user_followers WHERE follower_id=:userID ) OR userid=:userID2' )
+        ->take(10)
+        ->setBindings([$userID, $userID2])
+		->get();
         return view('newsfeed.index')->with('posts', $posts);
     }
 
@@ -107,4 +114,27 @@ class NewsfeedController extends Controller
         $post->delete;
         return redirect ('/newsfeed')->with('success', "Post Updated!");
     }
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $userID
+     * @return \Illuminate\Http\Response
+     */
+    public function profileFeed($userID)
+    {
+
+        $userID=$userID;
+        $userID2=$userID;
+        $posts = Newsfeed::select('*')
+        ->from('posts')
+        ->whereRaw('userid IN ( SELECT user_id FROM user_followers WHERE follower_id=:userID ) OR userid=:userID2' )
+        ->take(10)
+        ->setBindings([$userID, $userID2])
+        ->get();
+        return view('newsfeed.index')->with('posts', $posts);
+    }
+
 }
