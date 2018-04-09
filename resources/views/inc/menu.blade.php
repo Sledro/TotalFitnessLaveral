@@ -16,12 +16,21 @@
                             <p>News Feed</p>
                         </a>
                     </li>
+                    @if(Auth::user()->isTrainer == 1) 
                     <li>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="">
                             <i class="nc-icon nc-badge"></i>
                             <p>Client Manager</p>
                         </a>
                     </li>
+                    @else
+                    <li>
+                        <a class="nav-link" href="">
+                            <i class="nc-icon nc-badge"></i>
+                            <p>Trainer Finder</p>
+                        </a>
+                    </li>
+                    @endif
                     <li>
                         <a class="nav-link" href="#">
                             <i class="nc-icon nc-zoom-split"></i>
