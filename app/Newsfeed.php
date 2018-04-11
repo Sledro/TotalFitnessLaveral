@@ -9,6 +9,6 @@ class Newsfeed extends Model
     protected $table = 'posts';
 
     public function users() {
-        return $this->belongsTo('App\User', 'userid', 'id');
+        return $this->belongsTo('App\User', 'userID', 'id');
     }
 }

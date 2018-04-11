@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card mx-auto" style="max-width: 35rem;">
-    <h3 class="card-header">Sign up for free!</h3>
-    <div class="panel-body">
+<div class="card mx-auto" >
+    <h3 class="card-header">Sign up to Total Fitness for free!</h3>
+    <div class="panel-body" style="max-width: 65rem;">
         <form class="form-horizontal" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                <label for="username" class="col-md-12 control-label">Username</label>
+                <label for="username" style="text-align:left" class="col-md-12 control-label">Username</label>
 
                 <div class="col-md-12">
                     <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <label for="name" class="col-md-12 control-label">Name</label>
+                <label for="name" style="text-align:left" class="col-md-12 control-label">Name</label>
 
                 <div class="col-md-12">
                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <label for="email" class="col-md-12 control-label">E-Mail Address</label>
+                <label for="email" style="text-align:left" class="col-md-12 control-label">E-Mail Address</label>
 
                 <div class="col-md-12">
                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <label for="password" class="col-md-12 control-label">Password</label>
+                <label for="password" style="text-align:left" class="col-md-12 control-label">Password</label>
 
                 <div class="col-md-12">
                     <input id="password" type="password" class="form-control" name="password" required>
@@ -64,13 +64,21 @@
             </div>
 
             <div class="form-group">
-                <label for="password-confirm" class="col-md-12 control-label">Confirm Password</label>
+                <label for="password-confirm" style="text-align:left" class="col-md-12 control-label">Confirm Password</label>
 
                 <div class="col-md-12">
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div>
             </div>
 
+
+            <div class="form-group{{ $errors->has('isPT') ? ' has-error' : '' }} ">
+                <label for="isPT" style="text-align:left" class="col-md-12 control-label">Are you a Personal Trainer?</label>
+                <select id="isPT" required name="isPT" class="col-md-12 form-control" style="padding:25px;">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
             <div class="form-group ">
                 <div class="col-md-12 col-md-offset-4 mx-auto">
                     <button type="submit" class="btn btn-primary ">

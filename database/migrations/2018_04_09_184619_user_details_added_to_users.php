@@ -31,12 +31,6 @@ class UserDetailsAddedToUsers extends Migration
      */
     public function down()
     {
-        $table->integer('isTrainer');
-        $table->integer('trainerID');
-        $table->string('street');
-        $table->string('town');
-        $table->string('country');
-        $table->string('profession');
-        $table->string('gender');
+
     }
 }

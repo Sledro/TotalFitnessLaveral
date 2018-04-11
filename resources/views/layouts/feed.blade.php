@@ -1,8 +1,5 @@
 @if(count($posts) >= 1)  
 @foreach($posts as $post)
-
-  
-       
             <div class="card ">
                 <div class="card-header ">
                         <div class="float-left">
@@ -14,14 +11,13 @@
                     <h1 class="card-title">{{$post->body}}</h1>
                 </div>
                 <div class="card-footer ">
-
                     <hr>
                     <div class="stats">
-                     
                         <div class="legend">
                             <i class="fa fa-clock-o"></i>  Written on: {{$post->created_at}}
                         </div>
                     </div>
+                    
                     <a href="/newsfeed/{{$post->id}}/edit">
                         <div class="float-right">
                             <button type="button" class="btn btn-default btn-sm">

@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     public function posts(){
-        return $this->hasMany('App\Newsfeed', 'id', 'userid');
+        return $this->hasMany('App\Newsfeed', 'id', 'userID');
     }
     
 }
