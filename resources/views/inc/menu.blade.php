@@ -10,6 +10,12 @@
                     </a>
                 </div>
                 <ul class="nav">
+                        <li>
+                                <a class="nav-link" href="/newsfeed">
+                                    <i class="nc-icon nc-circle"></i>
+                                    <p>Newsfeed</p>
+                                </a>
+                            </li>
                     @if(Auth::user())
                         @if(Auth::user()->isTrainer == 1) 
                             <li>
@@ -39,7 +45,7 @@
                             </a>
                         </li>
                         <li>
-                        <a class="nav-link" href="/profile/@auth{{Auth::user()->username}}@endauth">
+                        <a class="nav-link" href="/user/@auth{{Auth::user()->username}}@endauth">
                                 <i class="nc-icon nc-circle-09"></i>
                                 <p>My Profile</p>
                             </a>
