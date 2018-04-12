@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\MyExercisePlan;
 use Illuminate\Http\Request;
 
@@ -15,10 +15,10 @@ class MyExercisePlanController extends Controller
     public function index()
     {
         if(Auth::guest()){
-            return redirect ('/newsfeed');
+            return redirect ('/');
         }
         else{
-            return view('pages.index'); 
+            return view('myExercisePlan.index'); 
         }
     }
 
@@ -48,10 +48,22 @@ class MyExercisePlanController extends Controller
      *
      * @param  \App\MyExercisePlan  $MyExercisePlan
      * @return \Illuminate\Http\Response
+     * @return view('myExercisePlan.index') with exercisePlan
      */
-    public function show(MyExercisePlan $MyExercisePlan)
+    public function show()
     {
-        //
+        if(Auth::guest()){
+            return redirect ('/');
+        }
+        else{
+            //Returns logged on users exercise plan and included exercises in object
+            $exercisePlan = MyExercisePlan::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
+
+            //For debugging - Displays JSON array that is being return from DB call above.
+           // echo $exercisePlan;
+            //exit;
+            return view('myExercisePlan.index')->with('exercisePlan', $exercisePlan);;; 
+        }
     }
 
     /**
