@@ -27,3 +27,6 @@ Route::resource('user','UserController');
 
 Route::get('/my-exercise-plan', 'MyExercisePlanController@show');
 Route::resource('MyExercisePlan','MyExercisePlanController');
+
+Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
+Route::resource('exercise','ExerciseController');

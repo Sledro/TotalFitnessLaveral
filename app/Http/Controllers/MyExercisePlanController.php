@@ -62,7 +62,7 @@ class MyExercisePlanController extends Controller
             //For debugging - Displays JSON array that is being return from DB call above.
            // echo $exercisePlan;
             //exit;
-            return view('myExercisePlan.index')->with('exercisePlan', $exercisePlan);;; 
+            return view('exercise.myExercisePlan')->with('exercisePlan', $exercisePlan);;; 
         }
     }
 

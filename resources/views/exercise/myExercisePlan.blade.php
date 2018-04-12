@@ -22,7 +22,7 @@
                                     <div id="card-282411">
                                             <div class="card" style="padding:5px;">
                                                 <div class="card-header">
-                                                    <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                    <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                     <b>Sets:</b> {{$exercises->sets}} <br/>
                                                     <b>Reps:</b> {{$exercises->reps}} <br/>
                                                     <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -56,7 +56,7 @@
                                         <div id="card-282411">
                                                 <div class="card" style="padding:5px;">
                                                     <div class="card-header">
-                                                        <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                        <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                         <b>Sets:</b> {{$exercises->sets}} <br/>
                                                         <b>Reps:</b> {{$exercises->reps}} <br/>
                                                         <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -90,7 +90,7 @@
                                             <div id="card-282411">
                                                     <div class="card" style="padding:5px;">
                                                         <div class="card-header">
-                                                            <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                            <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                             <b>Sets:</b> {{$exercises->sets}} <br/>
                                                             <b>Reps:</b> {{$exercises->reps}} <br/>
                                                             <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -126,7 +126,7 @@
                                                 <div id="card-282411">
                                                         <div class="card" style="padding:5px;">
                                                             <div class="card-header">
-                                                                <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                                <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                                 <b>Sets:</b> {{$exercises->sets}} <br/>
                                                                 <b>Reps:</b> {{$exercises->reps}} <br/>
                                                                 <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -161,7 +161,7 @@
                                                     <div id="card-282411">
                                                             <div class="card" style="padding:5px;">
                                                                 <div class="card-header">
-                                                                    <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                                    <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                                     <b>Sets:</b> {{$exercises->sets}} <br/>
                                                                     <b>Reps:</b> {{$exercises->reps}} <br/>
                                                                     <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -196,7 +196,7 @@
                                     <div id="card-282411">
                                             <div class="card" style="padding:5px;">
                                                 <div class="card-header">
-                                                    <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                    <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                     <b>Sets:</b> {{$exercises->sets}} <br/>
                                                     <b>Reps:</b> {{$exercises->reps}} <br/>
                                                     <b>Weight:</b> {{$exercises->weight}}<br/>
@@ -231,7 +231,7 @@
                                         <div id="card-282411">
                                                 <div class="card" style="padding:5px;">
                                                     <div class="card-header">
-                                                        <a class="card-link" data-toggle="collapse" data-parent="#card-282411" href="#card-element-406681">{{$exercise->name}}</a><br/>
+                                                        <a class="card-link"  href="./exercise/{{$exercise->id}}" d>{{$exercise->name}}</a><br/>
                                                         <b>Sets:</b> {{$exercises->sets}} <br/>
                                                         <b>Reps:</b> {{$exercises->reps}} <br/>
                                                         <b>Weight:</b> {{$exercises->weight}}<br/>
