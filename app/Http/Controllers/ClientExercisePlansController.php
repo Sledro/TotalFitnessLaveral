@@ -52,10 +52,10 @@ class ClientExercisePlansController extends Controller
         }
         else{
             //Returns logged on users exercise plan and included exercises in object
-            $exercisePlan = ClientExercisePlans::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
+            $exercisePlan = ClientExercisePlans::with('plan.exercises.exercise')->where('userID', Auth::user()->id)->where('active', '=', 1)->get();
 
             //For debugging - Displays JSON array that is being return from DB call above.
-           // echo $exercisePlan;
+            //echo $exercisePlan;
             //exit;
             return view('clientExercisePlans.viewExercisePlan')->with('exercisePlan', $exercisePlan);;; 
         }

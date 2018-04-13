@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExercisePlan extends Model
 {
-    public function exercise()
+    public function exercises()
     {
-        return $this->hasMany('App\Exercise', 'id');
+        return $this->hasMany('App\ExercisePlanDetails', 'planID');
     }
 }

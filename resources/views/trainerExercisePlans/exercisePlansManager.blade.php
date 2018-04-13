@@ -16,7 +16,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>{{$plan->id}}</td>
+                    <td>{{$plan->name}}</td>
                     <td>11:11 23/03/33</td>
                     <td><a href="#" class="btn btn-primary" style="float:left;margin-right:10px;">Manage</a></td>
                   </tr>

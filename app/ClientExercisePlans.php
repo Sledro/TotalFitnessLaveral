@@ -8,8 +8,8 @@ class ClientExercisePlans extends Model
 {
     protected $table = 'client_exercise_plans';
 
-    public function exercises()
+    public function plan()
     {
-        return $this->hasMany('App\ExercisePlan', 'planID');
+        return $this->hasMany('App\ExercisePlan', 'id');
     }
 }
