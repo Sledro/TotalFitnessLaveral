@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\ExerciseManager;
+use Auth;
+use App\ExercisePlanManager;
+use App\ExercisePlan;
 use Illuminate\Http\Request;
 
-class ExerciseManagerController extends Controller
+class TrainerExercisePlansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,8 @@ class ExerciseManagerController extends Controller
      */
     public function index()
     {
-        //$exercise = Exercise::find($id)->first();
-        //return view('exercise.viewExercise')->with('exercise', $exercise);
-        return view('exercise.ExerciseManager');
+        $plan = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->first();
+        return view('exercise.exercisePlanManager')->with('plan', $plan);
     }
 
     /**

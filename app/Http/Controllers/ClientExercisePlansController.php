@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Auth;
-use App\MyExercisePlan;
+use App\UserExercisePlans;
 use Illuminate\Http\Request;
 
-class MyExercisePlanController extends Controller
+class ClientExercisePlansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class MyExercisePlanController extends Controller
             return redirect ('/');
         }
         else{
-            return view('myExercisePlan.index'); 
+            return view('UserExercisePlans.index'); 
         }
     }
 
@@ -46,9 +46,9 @@ class MyExercisePlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MyExercisePlan  $MyExercisePlan
+     * @param  \App\UserExercisePlans  $UserExercisePlans
      * @return \Illuminate\Http\Response
-     * @return view('myExercisePlan.index') with exercisePlan
+     * @return view('UserExercisePlans.index') with exercisePlan
      */
     public function show()
     {
@@ -57,22 +57,22 @@ class MyExercisePlanController extends Controller
         }
         else{
             //Returns logged on users exercise plan and included exercises in object
-            $exercisePlan = MyExercisePlan::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
+            $exercisePlan = UserExercisePlans::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
 
             //For debugging - Displays JSON array that is being return from DB call above.
            // echo $exercisePlan;
             //exit;
-            return view('exercise.myExercisePlan')->with('exercisePlan', $exercisePlan);;; 
+            return view('exercise.UserExercisePlans')->with('exercisePlan', $exercisePlan);;; 
         }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MyExercisePlan  $MyExercisePlan
+     * @param  \App\UserExercisePlans  $UserExercisePlans
      * @return \Illuminate\Http\Response
      */
-    public function edit(MyExercisePlan $MyExercisePlan)
+    public function edit(UserExercisePlans $UserExercisePlans)
     {
         //
     }
@@ -81,10 +81,10 @@ class MyExercisePlanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MyExercisePlan  $MyExercisePlan
+     * @param  \App\UserExercisePlans  $UserExercisePlans
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MyExercisePlan $MyExercisePlan)
+    public function update(Request $request, UserExercisePlans $UserExercisePlans)
     {
         //
     }
@@ -92,10 +92,10 @@ class MyExercisePlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MyExercisePlan  $MyExercisePlan
+     * @param  \App\UserExercisePlans  $UserExercisePlans
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MyExercisePlan $MyExercisePlan)
+    public function destroy(UserExercisePlans $UserExercisePlans)
     {
         //
     }

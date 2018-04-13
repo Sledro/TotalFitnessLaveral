@@ -20,7 +20,7 @@ class NewsfeedController extends Controller
         $userID=Auth::user()->id;
         $userID2=Auth::user()->id;
         $posts = Newsfeed::select('*')
-		->from('posts')
+		->from('newsfeed')
         ->whereRaw('userid IN ( SELECT userID FROM user_followers WHERE followerID=:userID ) OR userID=:userID2' )
         ->take(10)
         ->setBindings([$userID, $userID2])
@@ -129,7 +129,7 @@ class NewsfeedController extends Controller
         $userID=$userID;
         $userID2=$userID;
         $posts = Newsfeed::select('*')
-        ->from('posts')
+        ->from('newsfeed')
         ->whereRaw('userid IN ( SELECT userID FROM user_followers WHERE followerID=:userID ) OR userid=:userID2' )
         ->take(10)
         ->setBindings([$userID, $userID2])

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExerciseManager extends Model
+class TrainerExercisePlanManager extends Model
 {
     public function exercise()
     {

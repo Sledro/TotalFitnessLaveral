@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MyExercisePlan extends Model
+class ClientExercisePlans extends Model
 {
-    protected $table = 'my_exercise_plans';
+    protected $table = 'client_exercise_plans';
 
     public function exercises()
     {

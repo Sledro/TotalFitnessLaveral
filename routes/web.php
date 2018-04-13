@@ -25,11 +25,11 @@ Route::post('/user/{username}/follow', 'UserController@follow')->name('user.show
 Route::get('/user/{username}', 'UserController@show')->name('user.show');
 Route::resource('user','UserController');
 
-Route::get('/my-exercise-plan', 'MyExercisePlanController@show');
-Route::resource('MyExercisePlan','MyExercisePlanController');
+Route::get('/my-exercise-plan', 'ClientExercisePlansController@show');
+Route::resource('ClientExercisePlans','ClientExercisePlansController');
 
 Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
 Route::resource('exercise','ExerciseController');
 
-Route::get('/exercise-manager', 'ExerciseManagerController@index');
-Route::resource('exercise-manager','ExerciseManagerController');
+Route::get('/exercise-plan-manager', 'TrainerExercisePlansController@index');
+Route::resource('TrainerExercisePlans','TrainerExercisePlansController');
