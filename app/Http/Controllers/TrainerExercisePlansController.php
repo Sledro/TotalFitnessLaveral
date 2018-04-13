@@ -17,7 +17,7 @@ class TrainerExercisePlansController extends Controller
     public function index()
     {
         $plan = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->first();
-        return view('exercise.exercisePlanManager')->with('plan', $plan);
+        return view('trainerExercisePlans.exercisePlansManager')->with('plan', $plan);
     }
 
     /**

@@ -14,12 +14,7 @@ class ClientExercisePlansController extends Controller
      */
     public function index()
     {
-        if(Auth::guest()){
-            return redirect ('/');
-        }
-        else{
-            return view('UserExercisePlans.index'); 
-        }
+
     }
 
     /**
@@ -62,7 +57,7 @@ class ClientExercisePlansController extends Controller
             //For debugging - Displays JSON array that is being return from DB call above.
            // echo $exercisePlan;
             //exit;
-            return view('exercise.UserExercisePlans')->with('exercisePlan', $exercisePlan);;; 
+            return view('clientExercisePlans.viewExercisePlan')->with('exercisePlan', $exercisePlan);;; 
         }
     }
 
