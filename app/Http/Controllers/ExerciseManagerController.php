@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\cr;
+use App\ExerciseManager;
 use Illuminate\Http\Request;
 
-class ExerciseManager extends Controller
+class ExerciseManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ExerciseManager extends Controller
     {
         //$exercise = Exercise::find($id)->first();
         //return view('exercise.viewExercise')->with('exercise', $exercise);
-        return view('exercise.exerciseManager');
+        return view('exercise.ExerciseManager');
     }
 
     /**
