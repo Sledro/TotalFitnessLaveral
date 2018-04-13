@@ -52,7 +52,7 @@
                         </li>
                         @if(Auth::user()->isTrainer == 1) 
                             <li>
-                                <a class="nav-link" href="/exercise-manager">
+                                <a class="nav-link" href="/exercise-plan-manager">
                                     <i class="nc-icon nc-badge"></i>
                                     <p>Exercise Manager</p>
                                 </a>

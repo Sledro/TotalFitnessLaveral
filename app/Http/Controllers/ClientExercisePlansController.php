@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
-use App\UserExercisePlans;
+use App\ClientExercisePlans;
 use Illuminate\Http\Request;
 
 class ClientExercisePlansController extends Controller
@@ -52,7 +52,7 @@ class ClientExercisePlansController extends Controller
         }
         else{
             //Returns logged on users exercise plan and included exercises in object
-            $exercisePlan = UserExercisePlans::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
+            $exercisePlan = ClientExercisePlans::with('exercises.exercise')->where('userID', Auth::user()->id)->get();
 
             //For debugging - Displays JSON array that is being return from DB call above.
            // echo $exercisePlan;
