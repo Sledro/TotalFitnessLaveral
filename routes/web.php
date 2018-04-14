@@ -33,3 +33,6 @@ Route::resource('exercise','ExerciseController');
 
 Route::get('/exercise-plan-manager', 'TrainerExercisePlansController@index');
 Route::resource('TrainerExercisePlans','TrainerExercisePlansController');
+
+Route::get('/exercise-plan-manager/edit/{id}', 'TrainerExercisePlansController@edit');
+Route::resource('TrainerExercisePlans','TrainerExercisePlansController');

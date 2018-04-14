@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\ExercisePlanManager;
 use App\ExercisePlan;
+use App\Exercise;
 use Illuminate\Http\Request;
 
 class TrainerExercisePlansController extends Controller
@@ -16,8 +17,8 @@ class TrainerExercisePlansController extends Controller
      */
     public function index()
     {
-        $plan = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->first();
-        return view('trainerExercisePlans.exercisePlansManager')->with('plan', $plan);
+        $plan = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->first();
+        return view('trainerExercisePlans.viewPlans')->with('plan', $plan);
     }
 
     /**
@@ -47,7 +48,7 @@ class TrainerExercisePlansController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show($id)
     {
         //
     }
@@ -58,9 +59,12 @@ class TrainerExercisePlansController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit($id)
     {
-        //
+        $plan =  ExercisePlan::with('exercises.exercise')->find($id);
+        $exerciseList = Exercise::pluck('name', 'id');
+
+        return view('trainerExercisePlans.editPlan')->with('plan', $plan)->with('exerciseList', $exerciseList);;
     }
 
     /**
