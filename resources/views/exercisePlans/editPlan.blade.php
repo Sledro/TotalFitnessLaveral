@@ -3,7 +3,7 @@
 @section('content')
     <h1>Edit Training Plan</h1>
 
-    {!! Form::open(['action' => ['TrainerExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
     <div class="form-group">
             {{ Form::label('title', 'Name') }}
             {{ Form::text('title', $plan->name, ['class' => 'form-control', 'placeholder' => 'title']) }}
