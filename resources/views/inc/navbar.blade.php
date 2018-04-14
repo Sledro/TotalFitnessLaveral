@@ -32,21 +32,21 @@
                                     <a href="{{ route('register') }}"> <button type="button" class="btn btn-default" aria-pressed="true"><strong>Register</strong></button></a>
                                 @else
                                  
-                                        Welcome,
-                                        <a href="/user/"  data-toggle="dropdown" role="button" aria-expanded="false">
-                                            {{ Auth::user()->name }} 
-                                        </a>
-                
-                                        
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                            <button type="button" class="btn btn-default" aria-pressed="true"><strong>Logout</strong></button>
-                                        </a>
-        
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
+                                    Welcome,&nbsp; 
+                                    <a href="/user/{{ Auth::user()->name }} "  data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->name }} 
+                                    </a>&nbsp;
+            
+                                    
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        <button type="button" class="btn btn-default" aria-pressed="true"><strong>Logout</strong></button>
+                                    </a>
+    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                  
                                 @endif
                             </ul>
