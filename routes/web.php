@@ -31,6 +31,7 @@ Route::resource('ExercisePlans','ExercisePlansController');
 Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
 Route::resource('exercise','ExerciseController');
 
+Route::put('/exercise-plan-manager/create/send', 'ExercisePlansController@store');
 Route::get('/exercise-plan-manager/create', 'ExercisePlansController@create');
 Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit');
 Route::get('/exercise-plan-manager', 'ExercisePlansController@index');

@@ -24,14 +24,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($plans as $plan)
                   <tr>
                     <th scope="row">1</th>
                     <td>{{$plan->name}}</td>
                     <td>55</td>
-                    <td>11:11 23/03/33</td>
+                    <td>{{$plan->created_at}}</td>
                     <td><a href="./exercise-plan-manager/edit/{{$plan->id}}" class="btn btn-primary" >Manage</a></td>
                     <td style="width:150px;"><a href="./exercise-plan-manager/edit/{{$plan->id}}" class="btn btn-danger" >Delete (Cannot be undone)</a></td>
                   </tr>
+                  @endforeach
                 </tbody>
             </table>
     </div>         

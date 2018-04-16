@@ -15,7 +15,7 @@
             {{ Form::text('title', $plan->name, ['class' => 'form-control', 'placeholder' => 'title']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('plan', 'Calender Plan') }}
+        {{ Form::label('plan', 'Calender Plan') }}<br/>
         <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;">
             <div class="card" style="padding:10px;background-color:#c7e0fc;">
                 <h3 style="margin-bottom:3px;">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div id="collapse{{$ran}}" class="collapse">
                                     <div class="panel-body">
-                                        <div class="card" style="padding:10px;"> 
+                                      
                                             <div class="form-group">    
                                                 {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                 {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -61,7 +61,7 @@
                                                     {{ Form::label('weight', 'Weight (kg)') }} <br/>
                                                     {{ Form::text('weight', $exercise->weight) }} <br/>
                                             </div>     
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div id="collapse{{$loop->iteration}}" class="collapse">
                                         <div class="panel-body">
-                                            <div class="card" style="padding:10px;"> 
+                                   
                                                 <div class="form-group">    
                                                     {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                     {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -115,7 +115,7 @@
                                                         {{ Form::label('weight', 'Weight (kg)') }} <br/>
                                                         {{ Form::text('weight', $exercise->weight) }} <br/>
                                                 </div>     
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

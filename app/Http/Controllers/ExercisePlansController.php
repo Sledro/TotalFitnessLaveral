@@ -6,6 +6,7 @@ use Auth;
 use App\ClientExercisePlans; // This model contains the historic and current training plans assigned to this client.
 use App\ExercisePlanManager;
 use App\ExercisePlan;
+use App\ExercisePlanDetails;
 use App\Exercise;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,8 @@ class ExercisePlansController extends Controller
      */
     public function index()
     {
-        $plan = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->first();
-        return view('exercisePlans.viewPlansTrainer')->with('plan', $plan);
+        $plans = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->get();
+        return view('exercisePlans.viewPlansTrainer')->with('plans', $plans);
     }
 
     /**
@@ -42,7 +43,56 @@ class ExercisePlansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'exerciseList' => 'required'
+        ]);
+        
+        $array = $request->all();
+
+        $post = new ExercisePlan();
+        $post->trainerID = Auth::user()->id;
+        $post->name = $request->input('title');
+        $post->save();
+
+        for($i=1; $i<=7; $i++){
+          if(isset($request->reps[$i][0])){
+            for($j=0; $j<=2; $j++){
+                if(isset($request->reps[$i][$j])){ 
+
+                    $details = new ExercisePlanDetails();
+                    $details->planID = $post->id;
+
+                    if($i==1){ 
+                        $details->day = "Monday";
+                    } else if ($i==2){
+                        $details->day = "Tuesday";
+                    } else if ($i==3){
+                        $details->day = "Wednesday";
+                    } else if ($i==4){
+                        $details->day = "Thursday";
+                    } else if ($i==5){
+                        $details->day = "Friday";
+                    } else if ($i==6){
+                        $details->day = "Saturday";
+                    } else if ($i==7){
+                        $details->day = "Sunday";
+                    }
+
+                    $details->exerciseID = $request->exerciseList[1][$j];
+                    $details->reps = $request->reps[1][$j];
+                    $details->sets = $request->sets[1][$j];
+                    $details->priority = "1";
+                    $details->weight = $request->weight[1][$j];
+                    $details->save();
+                    
+                }
+            }
+          }
+        }
+
+
+        return redirect ('/exercise-plan-manager')->with('success', "New Training Plan Created!");
     }
 
     /**
