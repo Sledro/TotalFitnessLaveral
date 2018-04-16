@@ -8,7 +8,7 @@ class Exercise extends Model
 {
     public function exercise()
     {
-        return $this->belongsTo('App\ExercisePlan');
+        return $this->belongsTo('App\ExercisePlanDetails', 'exerciseID');
     }
 
 }

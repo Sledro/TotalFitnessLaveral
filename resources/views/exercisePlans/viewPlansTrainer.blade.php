@@ -26,7 +26,7 @@
                 <tbody>
                   @foreach($plans as $plan)
                   <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{$plan->id}}</th>
                     <td>{{$plan->name}}</td>
                     <td>55</td>
                     <td>{{$plan->created_at}}</td>

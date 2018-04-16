@@ -8,6 +8,6 @@ class ExercisePlanDetails extends Model
 {
     public function exercise()
     {
-        return $this->hasMany('App\Exercise', 'id');
+        return $this->hasMany('App\Exercise', 'id', 'exerciseID');
     }
 }
