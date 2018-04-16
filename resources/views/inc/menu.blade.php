@@ -53,13 +53,13 @@
                         @if(Auth::user()->isTrainer == 1) 
                             <li>
                                 <a class="nav-link" href="/exercise-plan-manager">
-                                    <i class="nc-icon nc-badge"></i>
+                                    <i class="nc-icon nc-bullet-list-67"></i>
                                     <p>Exercise Manager</p>
                                 </a>
                             </li>
                             <li>
                                 <a class="nav-link" href="/diet-manager">
-                                    <i class="nc-icon nc-badge"></i>
+                                    <i class="nc-icon nc-bell-55"></i>
                                     <p>Diet Manager</p>
                                 </a>
                             </li>
