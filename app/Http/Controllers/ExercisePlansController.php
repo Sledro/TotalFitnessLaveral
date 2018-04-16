@@ -30,7 +30,8 @@ class ExercisePlansController extends Controller
      */
     public function create()
     {
-        //
+        $exerciseList = Exercise::pluck('name', 'id');
+        return view('exercisePlans.createPlan')->with('exerciseList', $exerciseList);;
     }
 
     /**

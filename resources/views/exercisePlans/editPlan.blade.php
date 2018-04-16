@@ -2,9 +2,13 @@
 
 @section('content')
 <div class="card" style="padding:10px;">
-    <center><h3>Update Training Plan</h3></center>
+        {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
+        <center><h3 style="margin-top:10px;margin-bottom:20px;">Edit Training Plan
+                {{ Form::submit('Update Plan', ['class' => 'btn btn-primary', 'style' => 'float:right;align:right;margin-right:10px;']) }}
+                {{ Form::submit('Delete Plan', ['class' => 'btn btn-danger', 'style' => 'float:right;align:right;margin-right:10px;']) }}
+                </h3></center>
     <hr style="margin:10px;"></hr>
-    {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
+
 
     <div class="form-group">
             {{ Form::label('title', 'Name') }}
@@ -123,8 +127,6 @@
         </div>
             <center>
             {{ Form::hidden('_method', 'PUT') }}
-            {{ Form::submit('Update Plan', ['class' => 'btn btn-primary']) }}
-            {{ Form::submit('Delete Plan', ['class' => 'btn btn-danger']) }}
             </center>
         {!! Form::close() !!}
         

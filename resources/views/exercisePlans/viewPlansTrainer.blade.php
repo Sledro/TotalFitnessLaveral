@@ -6,7 +6,7 @@
         <div class="card" style="padding:10px;">
           <h3 style="display: inline-block;margin-top:10px;">
               <center>Update Training Plan
-              <a href="./create" class="btn btn-success" style="float:right;align:right;margin-right:10px;width:200px;">New Exercise Plan</a>
+              <a href="./exercise-plan-manager/create" class="btn btn-success" style="float:right;align:right;margin-right:10px;width:200px;">New Exercise Plan</a>
               </center>
           </h3>
 
