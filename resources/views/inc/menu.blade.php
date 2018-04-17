@@ -32,12 +32,12 @@
                                 </a>
                             </li>
                         @endif
-                        <li>
-                            <a class="nav-link" href="#">
+                         <!-- <li>
+                          <a class="nav-link" href="#">
                                 <i class="nc-icon nc-zoom-split"></i>
                                 <p>Find User</p>
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a class="nav-link" href="#">
                                 <i class="nc-icon nc-email-85"></i>
@@ -78,7 +78,7 @@
                             </li>
                         @endif
                         <li>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/settings">
                                 <i class="nc-icon nc-settings-gear-64"></i>
                                 <p>Settings</p>
                             </a>

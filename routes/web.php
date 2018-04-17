@@ -23,26 +23,28 @@ Route::get('/newsfeed', 'NewsfeedController@index')->middleware('auth');
 
 Route::post('/user/{username}/follow', 'UserController@follow')->name('user.show');
 Route::get('/user/{username}', 'UserController@show')->name('user.show');
+Route::get('/settings', 'UserController@settings')->middleware('auth');
+Route::put('/settings/update', 'UserController@updateSettings')->middleware('auth');
 Route::resource('user','UserController');
 
-Route::get('/my-exercise-plan', 'ExercisePlansController@show');
+Route::get('/my-exercise-plan', 'ExercisePlansController@show')->middleware('auth');
 Route::resource('ExercisePlans','ExercisePlansController');
 
 Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
 Route::resource('exercise','ExerciseController');
 
-Route::put('/exercise-plan-manager/create/send', 'ExercisePlansController@store');
-Route::get('/exercise-plan-manager/create', 'ExercisePlansController@create');
-Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit');
-Route::get('/exercise-plan-manager', 'ExercisePlansController@index');
+Route::put('/exercise-plan-manager/create/send', 'ExercisePlansController@store')->middleware('auth');
+Route::get('/exercise-plan-manager/create', 'ExercisePlansController@create')->middleware('auth');
+Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit')->middleware('auth');
+Route::get('/exercise-plan-manager', 'ExercisePlansController@index')->middleware('auth');
 Route::resource('ExercisePlans','ExercisePlansController');
 
-Route::put('/client-manager/update', 'ClientManagerController@updatePlan');
-Route::put('/client-manager/accept', 'ClientManagerController@accept');
-Route::get('/client-manager', 'ClientManagerController@index');
-Route::get('/client-manager/requests', 'ClientManagerController@requests');
+Route::put('/client-manager/update', 'ClientManagerController@updatePlan')->middleware('auth');
+Route::put('/client-manager/accept', 'ClientManagerController@accept')->middleware('auth');
+Route::get('/client-manager', 'ClientManagerController@index')->middleware('auth');
+Route::get('/client-manager/requests', 'ClientManagerController@requests')->middleware('auth');
 Route::resource('ClientManager','ClientManagerController');
 
-Route::put('/trainer-finder/request', 'TrainerFinderController@request');
-Route::get('/trainer-finder', 'TrainerFinderController@index');
+Route::put('/trainer-finder/request', 'TrainerFinderController@request')->middleware('auth');
+Route::get('/trainer-finder', 'TrainerFinderController@index')->middleware('auth');
 Route::resource('TrainerFinder','TrainerFinderController');
