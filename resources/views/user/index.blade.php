@@ -22,11 +22,6 @@
                     <div class="hidden-xs">Profile Information</div>
                 </button>
             </div>
-            <div class="btn-group" role="group">
-                <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                    <div class="hidden-xs">Followers</div>
-                </button>
-            </div>
         </div>
 
         <div class="well">
@@ -40,24 +35,24 @@
                                 <tbody>
                                     <tr>
                                     <td>Personal Trainer</td>
-                                    <td>Jim Smith</td>
+                                    <td><a href="/user/{{$pt->username}}">{{$pt->name}}</td>
                                     </tr>
                                     <tr>
                                     <td>Location</td>
-                                    <td>Carlow, Ireland</td>
+                                    <td>{{$user->county}}, {{$user->country}}</td>
                                     </tr>
                                     <tr>
                                     <td>Profession</td>
-                                    <td>Student</td>
+                                    <td>{{$user->profession}}</td>
                                     </tr>
                                     <tr>
                                     <td>Age</td>
-                                    <td>25</td>
+                                    <td>{{\Carbon\Carbon::parse($user->dob)->diff(\Carbon\Carbon::now())->format('%y years, %m months and %d days')}}</td>
                                     </tr>
                                     <tr>
                                     <tr>
                                     <td>Gender</td>
-                                    <td>Male</td>
+                                    <td>{{$user->gender}}</td>
                                     </tr>
                                 </tbody>
                                 </table>

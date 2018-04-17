@@ -22,6 +22,10 @@
                 {{ Form::text('town', $user->town, ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
+                        {{ Form::label('county', 'County') }}
+                        {{ Form::text('county', $user->county, ['class' => 'form-control']) }}
+                </div>
+        <div class="form-group">
                 {{ Form::label('country', 'Country') }}
                 {{ Form::text('country', $user->country, ['class' => 'form-control']) }}
         </div>

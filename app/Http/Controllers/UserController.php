@@ -49,9 +49,14 @@ class UserController extends Controller
     {
         $user = User::whereUsername($username)->first();
         $posts =  Newsfeed::orderBy('id', 'desc')->where('userID', '=', $user->id)->take(10)->get();
-        
+        if($user->trainerID!=""){
+            $trainer = User::find($user->trainerID);
+            $PT=$trainer;
+        }else{
+            $PT="None";
+        }
         if($user){
-            return view('user.index')->withUser($user)->with('posts', $posts);;
+            return view('user.index')->withUser($user)->with('posts', $posts)->with('pt', $PT);;;
         }else{
            return false;
         }
@@ -138,6 +143,7 @@ public function follow(Request $request)
             'name' => 'required',
             'street' => 'required',
             'town' => 'required',
+            'county' => 'required',
             'country' => 'required',
             'dob' => 'required',
             'gender' => 'required',
@@ -148,6 +154,7 @@ public function follow(Request $request)
             'name' => $request->input('name'),
             'street' => $request->input('street'),
             'town' => $request->input('town'),
+            'county' => $request->input('county'),
             'country' => $request->input('country'),
             'dob' => $request->input('dob'),
             'gender' => $request->input('gender'),
