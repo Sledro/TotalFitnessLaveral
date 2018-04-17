@@ -15,11 +15,4 @@ class PagesContorller extends Controller
         }
     }
 
-    public function about(){
-        $data = array(
-            'title' => 'Services',
-            'services' => ['Web Design', 'Programming', 'SEO']
-        );
-        return view('newsfeed.about')->with($data);
-    }
 }

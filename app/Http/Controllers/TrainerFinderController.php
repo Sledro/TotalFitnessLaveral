@@ -6,7 +6,7 @@ use App\TrainerFinder;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
-
+use App\TrainerRequests;
 class TrainerFinderController extends Controller
 {
     /**
