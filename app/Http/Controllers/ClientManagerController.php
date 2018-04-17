@@ -6,7 +6,8 @@ use App\ClientManager;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
-
+use App\ExercisePlan;
+use App\TrainerRequests;
 class ClientManagerController extends Controller
 {
     /**
@@ -17,7 +18,8 @@ class ClientManagerController extends Controller
     public function index()
     {
         $clients = User::where('trainerID', '=', ''.Auth::user()->id.'')->get();
-        return view('clientManager.viewClients')->with('clients', $clients);
+        $plansList = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->pluck('name', 'id');
+        return view('clientManager.viewClients')->with('clients', $clients)->with('plansList', $plansList);
     }
 
     /**
@@ -85,4 +87,27 @@ class ClientManagerController extends Controller
     {
         //
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function requests()
+    {
+        $requests = TrainerRequests::where('trainerID', '=', ''.Auth::user()->id.'')->where('accepted',"=","0")->get();
+        return view('clientManager.requests')->with('requests', $requests);
+    }
+
+
+
+    public function accept(Request $request)
+    {
+
+        TrainerRequests::where('id', $request->requestID)->update(['accepted' => 1]);
+        User::where('id', $request->clientID)->update(['trainerID' => $request->trainerID]);
+        
+        return redirect()->back()->with('success', 'Successfully accepted this user as your client.');
+    }
+
 }

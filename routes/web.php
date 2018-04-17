@@ -38,5 +38,11 @@ Route::get('/exercise-plan-manager', 'ExercisePlansController@index');
 Route::resource('ExercisePlans','ExercisePlansController');
 
 
+Route::put('/client-manager/accept', 'ClientManagerController@accept');
 Route::get('/client-manager', 'ClientManagerController@index');
+Route::get('/client-manager/requests', 'ClientManagerController@requests');
 Route::resource('ClientManager','ClientManagerController');
+
+Route::put('/trainer-finder/request', 'TrainerFinderController@request');
+Route::get('/trainer-finder', 'TrainerFinderController@index');
+Route::resource('TrainerFinder','TrainerFinderController');
