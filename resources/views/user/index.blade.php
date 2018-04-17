@@ -79,4 +79,9 @@
         <!--Includes the layout feed that is also on the users profile!-->
         @include('layouts.feed') 
     </div>
+    <div class="col-md-6 pull-right">
+            <div class="card " style="padding:20px;">
+                    <img src="{{ asset('img/sponsors.png') }}"/>
+        </div>
+    </div>
 @endsection

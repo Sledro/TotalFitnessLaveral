@@ -5,9 +5,12 @@
 <div class="container-fluid">
         <div class="card" style="padding:10px;">
           <h3 style="display: inline-block;margin-top:10px;">
-              <center>Client Manager</center>
-              <a href="./client-manager/requests" class="btn btn-primary" >View Requests</a>
+              <center>Client Manager
+                  <a href="./client-manager/requests" class="btn btn-success" style="float:right;align:right;margin-right:10px;width:200px;">View Requests</a>
+                  </center>
           </h3>
+
+          
 
           <hr style="margin:10px;"></hr>
 

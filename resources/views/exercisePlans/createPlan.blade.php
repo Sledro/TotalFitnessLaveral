@@ -17,7 +17,7 @@
     <div class="form-group">
         {{ Form::label('plan', 'Calender Plan') }}</br>
         <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-            <div class="cardDay1" style="padding:10px;background-color:#c7e0fc;">
+            <div class="cardDay1" style="padding:10px;background-color:#c7e0fc;width:100%;">
                
                 <h3 style="margin-bottom:3px;">
                     <center>Monday</center>
@@ -293,6 +293,7 @@
             </div>
 
 
+        
             <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
                     <div class="cardDay5" style="padding:10px;background-color:#c7e0fc;">
                        

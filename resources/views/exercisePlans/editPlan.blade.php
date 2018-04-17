@@ -17,7 +17,7 @@
     
         {{ Form::label('plan', 'Calender Plan') }}<br/>
         <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-            <div class="card" style="padding:10px;background-color:#c7e0fc;">
+            <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                 <h3 style="margin-bottom:3px;">
                     <center>Monday</center>
                     <hr style="margin:10px;"></hr>
@@ -51,15 +51,15 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                    {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                    {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                    {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                    {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                    {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                    {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                             </div>     
                                         
                                     </div>
@@ -71,13 +71,16 @@
             </div>
         </div>
     
-            <div class="col-md-2" style="padding:0px;flex:0%;width:14.22%;">
-                <div class="card" style="padding:10px;background-color:#c7e0fc;">
+   
+
+
+        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                     <h3 style="margin-bottom:3px;">
                         <center>Tuesday</center>
                         <hr style="margin:10px;"></hr>
                     </h3>
-        
+    
                     <!--Iterate through exercises in the plan!-->  
                     @foreach($plan->exercises as $exercise)
                         @if($exercise->day=="Tuesday")
@@ -85,16 +88,17 @@
                                     <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                            <!--Iterate through exercises in user plans for Monday!-->  
+                                            <?$ran=rand(10,10000)?>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                            <!--Iterate through exercises in user plans for Tuesday!-->  
                                             @foreach($exercise->exercise as $exercises)
                                                 {{$exercises->name}}</a>
                                             @endforeach
                                         </h4>
                                     </div>
-                                    <div id="collapse{{$loop->iteration}}" class="collapse">
+                                    <div id="collapse{{$ran}}" class="collapse">
                                         <div class="panel-body">
-                                   
+                                          
                                                 <div class="form-group">    
                                                     {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                     {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -105,15 +109,15 @@
                                                 </div>
                                                 <div class="form-group">    
                                                         {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                        {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                        {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                 </div>
                                                 <div class="form-group">    
                                                         {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                        {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                        {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                 </div>
                                                 <div class="form-group">    
                                                         {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                        {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                        {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                 </div>     
                                             
                                         </div>
@@ -124,33 +128,35 @@
                     @endforeach
                 </div>
             </div>
-      
 
 
-            <div class="col-md-2" style="padding-left:10px;flex:0%;width:14.22%;">
-                    <div class="card" style="padding:10px;background-color:#c7e0fc;">
+
+
+            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                         <h3 style="margin-bottom:3px;">
-                            <center>Tuesday</center>
+                            <center>Wednesday</center>
                             <hr style="margin:10px;"></hr>
                         </h3>
-            
+        
                         <!--Iterate through exercises in the plan!-->  
                         @foreach($plan->exercises as $exercise)
-                            @if($exercise->day=="Tuesday")
+                            @if($exercise->day=="Wednesday")
                                 <div class="panel-group" id="accordion">
                                         <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                                <!--Iterate through exercises in user plans for Monday!-->  
+                                                <?$ran=rand(10,10000)?>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                                <!--Iterate through exercises in user plans for Wednesday!-->  
                                                 @foreach($exercise->exercise as $exercises)
                                                     {{$exercises->name}}</a>
                                                 @endforeach
                                             </h4>
                                         </div>
-                                        <div id="collapse{{$loop->iteration}}" class="collapse">
+                                        <div id="collapse{{$ran}}" class="collapse">
                                             <div class="panel-body">
-                                       
+                                              
                                                     <div class="form-group">    
                                                         {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                         {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -161,15 +167,15 @@
                                                     </div>
                                                     <div class="form-group">    
                                                             {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                            {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                            {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                     </div>
                                                     <div class="form-group">    
                                                             {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                            {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                            {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                     </div>
                                                     <div class="form-group">    
                                                             {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                            {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                            {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                     </div>     
                                                 
                                             </div>
@@ -181,30 +187,34 @@
                     </div>
                 </div>
 
-                <div class="col-md-2" style="padding-left:10px;flex:0%;width:14.22%;">
-                        <div class="card" style="padding:10px;background-color:#c7e0fc;">
+
+
+
+                <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                        <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                             <h3 style="margin-bottom:3px;">
-                                <center>Tuesday</center>
+                                <center>Thursday</center>
                                 <hr style="margin:10px;"></hr>
                             </h3>
-                
+            
                             <!--Iterate through exercises in the plan!-->  
                             @foreach($plan->exercises as $exercise)
-                                @if($exercise->day=="Tuesday")
+                                @if($exercise->day=="Thursday")
                                     <div class="panel-group" id="accordion">
                                             <div class="panel panel-default">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                                    <!--Iterate through exercises in user plans for Monday!-->  
+                                                    <?$ran=rand(10,10000)?>
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                                    <!--Iterate through exercises in user plans for Thursday!-->  
                                                     @foreach($exercise->exercise as $exercises)
                                                         {{$exercises->name}}</a>
                                                     @endforeach
                                                 </h4>
                                             </div>
-                                            <div id="collapse{{$loop->iteration}}" class="collapse">
+                                            <div id="collapse{{$ran}}" class="collapse">
                                                 <div class="panel-body">
-                                           
+                                                  
                                                         <div class="form-group">    
                                                             {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                             {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -215,15 +225,15 @@
                                                         </div>
                                                         <div class="form-group">    
                                                                 {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                                {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                                {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                         </div>
                                                         <div class="form-group">    
                                                                 {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                                {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                                {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                         </div>
                                                         <div class="form-group">    
                                                                 {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                                {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                                {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                         </div>     
                                                     
                                                 </div>
@@ -235,31 +245,32 @@
                         </div>
                     </div>
 
-                    
-                    <div class="col-md-2" style="padding-left:10px;flex:0%;width:14.22%;">
-                            <div class="card" style="padding:10px;background-color:#c7e0fc;">
+
+                    <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                            <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                 <h3 style="margin-bottom:3px;">
-                                    <center>Tuesday</center>
+                                    <center>Friday</center>
                                     <hr style="margin:10px;"></hr>
                                 </h3>
-                    
+                
                                 <!--Iterate through exercises in the plan!-->  
                                 @foreach($plan->exercises as $exercise)
-                                    @if($exercise->day=="Tuesday")
+                                    @if($exercise->day=="Friday")
                                         <div class="panel-group" id="accordion">
                                                 <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                                        <!--Iterate through exercises in user plans for Monday!-->  
+                                                        <?$ran=rand(10,10000)?>
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                                        <!--Iterate through exercises in user plans for Friday!-->  
                                                         @foreach($exercise->exercise as $exercises)
                                                             {{$exercises->name}}</a>
                                                         @endforeach
                                                     </h4>
                                                 </div>
-                                                <div id="collapse{{$loop->iteration}}" class="collapse">
+                                                <div id="collapse{{$ran}}" class="collapse">
                                                     <div class="panel-body">
-                                               
+                                                      
                                                             <div class="form-group">    
                                                                 {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                                 {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -270,15 +281,15 @@
                                                             </div>
                                                             <div class="form-group">    
                                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                                    {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                                    {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                             </div>
                                                             <div class="form-group">    
                                                                     {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                                    {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                                    {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                             </div>
                                                             <div class="form-group">    
                                                                     {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                                    {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                                    {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                             </div>     
                                                         
                                                     </div>
@@ -290,31 +301,34 @@
                             </div>
                         </div>
 
-                        
-                        <div class="col-md-2" style="padding-left:10px;flex:0%;width:14.22%;">
-                                <div class="card" style="padding:10px;background-color:#c7e0fc;">
+
+
+
+                        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                                <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                     <h3 style="margin-bottom:3px;">
-                                        <center>Tuesday</center>
+                                        <center>Saturday</center>
                                         <hr style="margin:10px;"></hr>
                                     </h3>
-                        
+                    
                                     <!--Iterate through exercises in the plan!-->  
                                     @foreach($plan->exercises as $exercise)
-                                        @if($exercise->day=="Tuesday")
+                                        @if($exercise->day=="Saturday")
                                             <div class="panel-group" id="accordion">
                                                     <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                                            <!--Iterate through exercises in user plans for Monday!-->  
+                                                            <?$ran=rand(10,10000)?>
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                                            <!--Iterate through exercises in user plans for Saturday!-->  
                                                             @foreach($exercise->exercise as $exercises)
                                                                 {{$exercises->name}}</a>
                                                             @endforeach
                                                         </h4>
                                                     </div>
-                                                    <div id="collapse{{$loop->iteration}}" class="collapse">
+                                                    <div id="collapse{{$ran}}" class="collapse">
                                                         <div class="panel-body">
-                                                   
+                                                          
                                                                 <div class="form-group">    
                                                                     {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                                     {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -325,15 +339,15 @@
                                                                 </div>
                                                                 <div class="form-group">    
                                                                         {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                                        {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                                        {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                 </div>
                                                                 <div class="form-group">    
                                                                         {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                                        {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                                        {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                 </div>
                                                                 <div class="form-group">    
                                                                         {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                                        {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                                        {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                 </div>     
                                                             
                                                         </div>
@@ -345,31 +359,35 @@
                                 </div>
                             </div>
 
-                            
-                            <div class="col-md-2" style="padding-left:10px;flex:0%;width:14.22%;">
-                                    <div class="card" style="padding:10px;background-color:#c7e0fc;">
+
+
+
+
+                            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                                    <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                         <h3 style="margin-bottom:3px;">
-                                            <center>Tuesday</center>
+                                            <center>Sunday</center>
                                             <hr style="margin:10px;"></hr>
                                         </h3>
-                            
+                        
                                         <!--Iterate through exercises in the plan!-->  
                                         @foreach($plan->exercises as $exercise)
-                                            @if($exercise->day=="Tuesday")
+                                            @if($exercise->day=="Sunday")
                                                 <div class="panel-group" id="accordion">
                                                         <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$loop->iteration}}">
-                                                                <!--Iterate through exercises in user plans for Monday!-->  
+                                                                <?$ran=rand(10,10000)?>
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$ran}}">
+                                                                <!--Iterate through exercises in user plans for Sunday!-->  
                                                                 @foreach($exercise->exercise as $exercises)
                                                                     {{$exercises->name}}</a>
                                                                 @endforeach
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse{{$loop->iteration}}" class="collapse">
+                                                        <div id="collapse{{$ran}}" class="collapse">
                                                             <div class="panel-body">
-                                                       
+                                                              
                                                                     <div class="form-group">    
                                                                         {{ Form::label('exerciseList', 'Exercise') }} <br/>
                                                                         {{ Form::select('exerciseList', $exerciseList) }} <br/>
@@ -380,15 +398,15 @@
                                                                     </div>
                                                                     <div class="form-group">    
                                                                             {{ Form::label('reps', 'Number of Reps') }} <br/>
-                                                                            {{ Form::text('reps', $exercise->reps) }} <br/>
+                                                                            {{ Form::text('reps', $exercise->reps, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                     </div>
                                                                     <div class="form-group">    
                                                                             {{ Form::label('sets', 'Number of Sets') }} <br/>
-                                                                            {{ Form::text('sets', $exercise->sets) }} <br/>
+                                                                            {{ Form::text('sets', $exercise->sets, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                     </div>
                                                                     <div class="form-group">    
                                                                             {{ Form::label('weight', 'Weight (kg)') }} <br/>
-                                                                            {{ Form::text('weight', $exercise->weight) }} <br/>
+                                                                            {{ Form::text('weight', $exercise->weight, array('size'=>15, 'maxlength'=>10)) }} <br/>
                                                                     </div>     
                                                                 
                                                             </div>
@@ -399,8 +417,6 @@
                                         @endforeach
                                     </div>
                                 </div>
-                
-
         
             <center>
             {{ Form::hidden('_method', 'PUT') }}
