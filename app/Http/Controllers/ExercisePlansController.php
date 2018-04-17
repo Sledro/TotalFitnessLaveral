@@ -79,11 +79,11 @@ class ExercisePlansController extends Controller
                         $details->day = "Sunday";
                     }
 
-                    $details->exerciseID = $request->exerciseList[1][$j];
-                    $details->reps = $request->reps[1][$j];
-                    $details->sets = $request->sets[1][$j];
+                    $details->exerciseID = $request->exerciseList[$i][$j];
+                    $details->reps = $request->reps[$i][$j];
+                    $details->sets = $request->sets[$i][$j];
                     $details->priority = "1";
-                    $details->weight = $request->weight[1][$j];
+                    $details->weight = $request->weight[$i][$j];
                     $details->save();
                     
                 }
@@ -110,7 +110,7 @@ class ExercisePlansController extends Controller
         else{
             //Returns logged on users exercise plan and included exercises in object
             $exercisePlan = ClientExercisePlans::with('plan.exercises.exercise')->where('userID', Auth::user()->id)->where('active', '=', 1)->get();
-            return view('clientExercisePlans.viewPlansClient')->with('exercisePlan', $exercisePlan);;; 
+            return view('exercisePlans.viewPlanClient')->with('exercisePlan', $exercisePlan);;; 
         }
     }
 
