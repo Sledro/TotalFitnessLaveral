@@ -37,3 +37,6 @@ Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit');
 Route::get('/exercise-plan-manager', 'ExercisePlansController@index');
 Route::resource('ExercisePlans','ExercisePlansController');
 
+
+Route::get('/client-manager', 'ClientManagerController@index');
+Route::resource('ClientManager','ClientManagerController');
