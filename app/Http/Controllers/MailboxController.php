@@ -6,6 +6,8 @@ use App\Mailbox;
 use Illuminate\Http\Request;
 use Auth;
 use App\MailboxMessages;
+
+use Illuminate\Support\Facades\Redirect;
 class MailboxController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class MailboxController extends Controller
      */
     public function index()
     {
-        $mail = Mailbox::where('receiverID', '=', ''.Auth::user()->id.'')->get();
+        $mail = Mailbox::where('receiverID', '=', Auth::user()->id)->orWhere('senderID', '=', Auth::user()->id)->get();
         return view('mailbox.viewAll')->with('mail', $mail);
     }
 
@@ -48,8 +50,9 @@ class MailboxController extends Controller
      */
     public function show($id)
     {
-        $mail = MailboxMessages::where('mailboxID', '=', $id)->get();
-        return view('mailbox.viewMessage')->with('mail', $mail);
+        $message = MailboxMessages::where('mailboxID', '=', $id)->get();
+        $mail = Mailbox::find($id);
+        return view('mailbox.viewMessage')->with('mail', $mail)->with('message', $message);
     }
 
     /**
@@ -84,5 +87,26 @@ class MailboxController extends Controller
     public function destroy(Mailbox $mailbox)
     {
         //
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Mailbox  $mailbox
+     * @return \Illuminate\Http\Response
+     */
+    public function reply(Request $request)
+    {
+        $post = new MailboxMessages;
+        $post->mailboxID = $request->input('id');
+        $post->senderID = $request->input('senderID');
+        $post->receiverID = $request->input('receiverID');
+        $post->message = $request->input('reply');
+        $post->save();
+
+        return Redirect::back()->with('message','Message Sent !');
+
     }
 }
