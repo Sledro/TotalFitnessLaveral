@@ -6,7 +6,7 @@ use App\Mailbox;
 use Illuminate\Http\Request;
 use Auth;
 use App\MailboxMessages;
-
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Redirect;
 class MailboxController extends Controller
 {
@@ -66,7 +66,9 @@ class MailboxController extends Controller
     {
         $message = MailboxMessages::where('mailboxID', '=', $id)->get();
         $mail = Mailbox::find($id);
-        return view('mailbox.viewMessage')->with('mail', $mail)->with('message', $message);
+        $sender= User::find($mail->senderID);
+        $receiver= User::find($mail->receiverID);
+        return view('mailbox.viewMessage')->with('mail', $mail)->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
     }
 
     /**
