@@ -11,14 +11,18 @@
                             <ul class="nav navbar-nav mr-auto" style="width:49%;padding:5px;margin-top:5px;">
                                 <li class="nav-item">                                  
                                     <div id="custom-search-input">
-                                        <div class="input-group col-md-12">
-                                            <input type="text" class="form-control input-lg" placeholder="Search People, Places or Things.." style="height:32px;width:350px;"/>
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-info btn-lg" type="button">
-                                                    <i class="nc-icon nc-zoom-split"></i>
-                                                </button>
-                                            </span>
-                                        </div>
+            
+                                        <form action="/search" method="POST" role="search">
+                                            {{ csrf_field() }}
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="q"
+                                                    placeholder="Search users by name or email"> <span class="input-group-btn">
+                                                    <button type="submit" class="btn btn-default">
+                                                        <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </form>
                                     </div>
                                 </li>
                             </ul>

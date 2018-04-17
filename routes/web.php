@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Use Illuminate\Support\Facades\Input;
+Use Illuminate\Foundation\Auth\User;
 
 Route::get('/', 'PagesContorller@index');
 
@@ -55,3 +57,14 @@ Route::get('/mailbox', 'MailboxController@index')->middleware('auth');
 Route::get('/mailbox/create/{id}', 'MailboxController@create')->middleware('auth');
 Route::get('/mailbox/view/{id}', 'MailboxController@show')->middleware('auth');
 Route::resource('Mailbox','MailboxController');
+
+Route::get ( '/', function () {
+    return view ( 'welcome' );
+} );
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('search')->withDetails($user)->withQuery ( $q );
+    else return view ('search')->withMessage('No Details found. Try to search again !');
+});
