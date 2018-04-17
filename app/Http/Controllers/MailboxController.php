@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Mailbox;
 use Illuminate\Http\Request;
 use Auth;
@@ -17,7 +18,7 @@ class MailboxController extends Controller
      */
     public function index()
     {
-        $mail = Mailbox::where('receiverID', '=', Auth::user()->id)->orWhere('senderID', '=', Auth::user()->id)->get();
+        $mail = Mailbox::with('sender')->with('receiver')->where('receiverID', '=', Auth::user()->id)->orWhere('senderID', '=', Auth::user()->id)->get();
         return view('mailbox.viewAll')->with('mail', $mail);
     }
 

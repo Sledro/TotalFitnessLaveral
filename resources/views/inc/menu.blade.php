@@ -32,12 +32,12 @@
                                 </a>
                             </li>
                         @endif
-                         <!-- <li>
-                          <a class="nav-link" href="#">
+                         <li>
+                          <a class="nav-link" href="/search">
                                 <i class="nc-icon nc-zoom-split"></i>
                                 <p>Find User</p>
                             </a>
-                        </li>-->
+                        </li>
                         <li>
                             <a class="nav-link" href="/mailbox">
                                 <i class="nc-icon nc-email-85"></i>
@@ -57,23 +57,11 @@
                                     <p>Exercise Manager</p>
                                 </a>
                             </li>
-                            <li>
-                                <a class="nav-link" href="/diet-manager">
-                                    <i class="nc-icon nc-bell-55"></i>
-                                    <p>Diet Manager</p>
-                                </a>
-                            </li>
                         @else
                             <li>
                                 <a class="nav-link" href="/my-exercise-plan">
                                     <i class="nc-icon nc-bell-55"></i>
                                     <p>My Exercise Plan</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="/my-diet-plan">
-                                    <i class="nc-icon nc-android"></i>
-                                    <p>My Diet Plan</p>
                                 </a>
                             </li>
                         @endif
