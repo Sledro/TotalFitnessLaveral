@@ -26,12 +26,16 @@
                 <tbody>
                   @foreach($clients as $client)
                   <tr>
+                    {!! Form::open(['action' => ['ClientManagerController@updatePlan'], 'method' => 'POST']) !!}
                     <th scope="row">{{$client->id}}</th>
                     <td>{{$client->name}}</td>
                     <td>{{$client->username}}</td>
                     <td>{{$client->email}}</td>
                     <td> {{ Form::select('plansList', $plansList) }} <br/></td>
-                    <td><a href="./exercise-plan-manager/edit/{{$client->id}}" class="btn btn-primary" >Update</a></td>
+                    {{ Form::hidden('clientID', $client->id) }}
+                    <td>{{ Form::submit('Update Plan', ['class' => 'btn btn-primary']) }}</td>
+                    {{ Form::hidden('_method', 'PUT') }}
+                    {!! Form::close() !!}
                     <td style="width:150px;"><a href="./exercise-plan-manager/edit/{{$client->id}}" class="btn btn-danger" >Remove as Client</a></td>
                   </tr>
                   @endforeach

@@ -37,7 +37,7 @@ Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit');
 Route::get('/exercise-plan-manager', 'ExercisePlansController@index');
 Route::resource('ExercisePlans','ExercisePlansController');
 
-
+Route::put('/client-manager/update', 'ClientManagerController@updatePlan');
 Route::put('/client-manager/accept', 'ClientManagerController@accept');
 Route::get('/client-manager', 'ClientManagerController@index');
 Route::get('/client-manager/requests', 'ClientManagerController@requests');

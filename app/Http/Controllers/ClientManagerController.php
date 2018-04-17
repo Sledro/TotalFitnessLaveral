@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\ExercisePlan;
 use App\TrainerRequests;
+use App\ClientExercisePlans;
 class ClientManagerController extends Controller
 {
     /**
@@ -72,9 +73,11 @@ class ClientManagerController extends Controller
      * @param  \App\ClientManager  $clientManager
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClientManager $clientManager)
+    public function update(Request $request)
     {
-        //
+        echo $request->plansList;
+        echo $request->clientID;
+        exit();
     }
 
     /**
@@ -109,5 +112,22 @@ class ClientManagerController extends Controller
         
         return redirect()->back()->with('success', 'Successfully accepted this user as your client.');
     }
+
+
+
+    public function updatePlan(Request $request)
+    {
+        ClientExercisePlans::where('id', $request->clientID)->where('active', '=', '1')->update(['active' => 0]);
+
+        $details = new ClientExercisePlans();
+        $details->userID = $request->clientID;
+        $details->exercisePlanID = $request->plansList;
+        $details->active = '1'; 
+        $details->save();
+
+        return redirect()->back()->with('success', 'Successfully assigned this plan to your client.');
+    }
+
+
 
 }
