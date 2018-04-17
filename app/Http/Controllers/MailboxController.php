@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mailbox;
 use Illuminate\Http\Request;
-
+use Auth;
+use App\MailboxMessages;
 class MailboxController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class MailboxController extends Controller
      */
     public function index()
     {
-        //
+        $mail = Mailbox::where('receiverID', '=', ''.Auth::user()->id.'')->get();
+        return view('mailbox.viewAll')->with('mail', $mail);
     }
 
     /**
@@ -44,9 +46,10 @@ class MailboxController extends Controller
      * @param  \App\Mailbox  $mailbox
      * @return \Illuminate\Http\Response
      */
-    public function show(Mailbox $mailbox)
+    public function show($id)
     {
-        //
+        $mail = MailboxMessages::where('mailboxID', '=', $id)->get();
+        return view('mailbox.viewMessage')->with('mail', $mail);
     }
 
     /**

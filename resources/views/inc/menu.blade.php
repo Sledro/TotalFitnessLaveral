@@ -39,7 +39,7 @@
                             </a>
                         </li>-->
                         <li>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/mailbox">
                                 <i class="nc-icon nc-email-85"></i>
                                 <p>Mailbox</p>
                             </a>
