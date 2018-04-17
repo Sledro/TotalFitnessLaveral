@@ -80,7 +80,7 @@
             <div class="col-md-2" style="padding:10px;flex:0%;">
                     <div class="card" style="padding:15px;background-color:#c7e0fc;">
                         <h3 style="margin-bottom:3px;">
-                            <center>Wednsday</center>
+                            <center>Wednesday</center>
                             <hr style="margin:5px;"></hr>
                         </h3>
                         <!--Iterate through list of user assigned exercise plan!-->      
@@ -88,7 +88,7 @@
                             @foreach($plans->plan as $plan)
                                 <!--Iterate through  assigned exercises plan details!-->  
                                 @foreach($plan->exercises as $exercises)
-                                    @if($exercises->day=="Wednsday")
+                                    @if($exercises->day=="Wednesday")
                                     
                                         <!--Iterate through exercises in user plans for Monday!-->  
                                         @foreach($exercises->exercise as $exercise)

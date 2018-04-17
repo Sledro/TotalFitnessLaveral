@@ -10,6 +10,6 @@ class ClientExercisePlans extends Model
 
     public function plan()
     {
-        return $this->hasMany('App\ExercisePlan', 'id');
+        return $this->hasMany('App\ExercisePlan', 'id', 'exercisePlanID');
     }
 }
