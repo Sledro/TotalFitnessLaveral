@@ -48,7 +48,7 @@ class ExercisePlansController extends Controller
             'exerciseList' => 'required'
         ]);
         
-        $array = $request->all();
+        //$array = $request->all();
 
         $post = new ExercisePlan();
         $post->trainerID = Auth::user()->id;

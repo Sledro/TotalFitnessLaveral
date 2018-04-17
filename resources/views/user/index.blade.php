@@ -56,8 +56,8 @@
                                     </tr>
                                 </tbody>
                                 </table>
-                                @if (Auth::guest())
-                                    <a href="#" class="btn btn-primary" style="float:left;margin-right:10px;">Private Message</a>
+                                @if (!Auth::guest())
+                                     <a href="/mailbox/create/{{$user->id}}" class="btn btn-primary" style="float:left;margin-right:10px;">Private Message</a>
                                     {!! Form::open(['action' => ['UserController@follow', $user->username], 'method' => 'POST']) !!}
                                     {{Form::hidden('userID', $user->id)}}
                                     {{Form::hidden('followerID', Auth::user()->id)}}   

@@ -26,9 +26,9 @@ class MailboxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('mailbox.create')->with('id', $id);
     }
 
     /**
@@ -37,9 +37,23 @@ class MailboxController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeNow(Request $request)
     {
-        //
+        $header = new Mailbox;
+        $header->senderID = Auth::user()->id;
+        $header->receiverID = $request->input('receiverID');
+        $header->title = $request->input('title');
+        $header->save();
+
+        $post = new MailboxMessages;
+        $post->mailboxID = $header->id;
+        $post->senderID = Auth::user()->id;
+        $post->receiverID = $request->input('receiverID');
+        $post->message = $request->input('message');
+        $post->save();  
+
+
+        return view('mailbox.create')->with('message','Message Sent !');
     }
 
     /**

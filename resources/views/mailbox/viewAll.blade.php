@@ -15,6 +15,7 @@
                   <tr>
                     <th scope="col">Mail ID</th>
                     <th scope="col">From</th>
+                    <th scope="col">To</th>
                     <th scope="col">Title</th>
                     <th scope="col">Received On</th>
                     <th scope="col">View</th>
@@ -25,6 +26,7 @@
                   <tr>
                     <th scope="row">{{$pms->id}}</th>
                     <td>{{$pms->senderID}}</td>
+                    <td>{{$pms->receiverID}}</td>
                     <td>{{$pms->title}}</td>
                     <td>{{$pms->created_at}}</td>
                     <td style="width:150px;"><a href="./mailbox/view/{{$pms->id}}" class="btn btn-primary" >View</a></td>
