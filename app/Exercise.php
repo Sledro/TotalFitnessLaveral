@@ -11,4 +11,5 @@ class Exercise extends Model
         return $this->belongsTo('App\ExercisePlanDetails', 'exerciseID');
     }
 
+    
 }
