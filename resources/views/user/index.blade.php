@@ -35,29 +35,39 @@
                                 <tbody>
                                     <tr>
                                     <td>Personal Trainer</td>
-                                    <td>@if(!$pt="None")<a href="/user/{{$pt->username}}">{{$pt->name}}@endif</td>
+                                    <td>@if(!$pt="None")<a href="/user/{{$pt->username}}">{{$pt->name}}@else None assigned. @endif</td>
                                     </tr>
                                     <tr>
                                     <td>Location</td>
-                                    <td>@if($user->county!=""){{$user->county}}, {{$user->country}}@endif</td>
+                                    <td>@if($user->county!=""){{$user->county}}, {{$user->country}}@else None given. @endif</td>
                                     </tr>
                                     <tr>
                                     <td>Profession</td>
-                                    <td>@if($user->county!=""){{$user->county}}@endif</td>
+                                    <td>@if($user->county!=""){{$user->county}}@else None  given.@endif
+                                    </td>
                                     </tr>
                                     <tr>
                                     <td>Age</td>
-                                    <td>@if($user->dob!=""){{\Carbon\Carbon::parse($user->dob)->diff(\Carbon\Carbon::now())->format('%y years, %m months and %d days')}}@endif</td>
+                                    <td>@if($user->dob!=""){{\Carbon\Carbon::parse($user->dob)->diff(\Carbon\Carbon::now())->format('%y years, %m months and %d days')}}@else None given. @endif</td>
                                     </tr>
                                     <tr>
                                     <tr>
                                     <td>Gender</td>
-                                    <td>{{$user->gender}}</td>
+                                    <td>@if($user->gender!="")
+                                            @if($user->gender==1) 
+                                                Male
+                                            @else
+                                                Female
+                                            @endif
+                                        @else 
+                                            None given. 
+                                        @endif
+                                    </td>
                                     </tr>
                                 </tbody>
                                 </table>
                                 @if (!Auth::guest() && Auth::user()->username!=$user->username)
-                                     <a href="/mailbox/create/{{$user->id}}" class="btn btn-primary" style="float:left;margin-right:10px;">Private Message</a>
+                                    <a href="/mailbox/create/{{$user->id}}" class="btn btn-primary" style="float:left;margin-right:10px;">Private Message</a>
                                     {!! Form::open(['action' => ['UserController@follow', $user->username], 'method' => 'POST']) !!}
                                     {{Form::hidden('userID', $user->id)}}
                                     {{Form::hidden('followerID', Auth::user()->id)}}   

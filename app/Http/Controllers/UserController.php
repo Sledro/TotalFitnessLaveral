@@ -147,12 +147,12 @@ class UserController extends Controller
         $this->validate($request,[
             'uid' => 'required',
             'name' => 'required|string|max:150',
-            'street' => 'required|string|max:150',
-            'town' => 'required|string|max:150',
-            'county' => 'required|string|max:150',
-            'country' => 'required|string|max:150',
+            'street' => 'string|max:150',
+            'town' => 'string|max:150',
+            'county' => 'string|max:150',
+            'country' => 'string|max:150',
             'gender' => 'required|string|max:150',
-            'profession' => 'required|string|max:150',
+            'profession' => 'string|max:150',
         ]);
 
         User::where('id', $request->input('uid'))->update([

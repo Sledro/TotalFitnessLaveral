@@ -5,7 +5,7 @@
 	<div class="row">
 
 
-
+        @if(!$exercisePlan->isEmpty())
 		<div class="col-md-2" style="padding:10px;flex:0%;">
             <div class="card" style="padding:15px;background-color:#c7e0fc;">
                 <h3 style="margin-bottom:3px;">
@@ -255,6 +255,12 @@
                             @endforeach     
                         </div>
                     </div>  
+        @else
+        <div class="card">
+            You do not yet have a training plan assigned to you. If you have a personal trainer assigned already you they need to assign a plan to you. 
+            Otherwise you can find a personal trainer on our <a href="/trainer-finder">Trainer Finder</a>.
+        </div>
+        @endif
 	</div>
 </div>
 @endsection

@@ -4,9 +4,7 @@
 <div class="container-fluid">
 	<div class="card">
             {{$exercise}}  
-        </div>  
-        
-            
+        </div>     
 	</div>
 </div>
 @endsection
