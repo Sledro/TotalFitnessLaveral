@@ -107,8 +107,8 @@ public function follow(Request $request)
 
     \DB::table('user_followers')->insert([
         [
-            'user_id'             => $request->input('userID'),
-            'follower_id' => $request->input('followerID'),
+            'userID'             => $request->input('userID'),
+            'followerID' => $request->input('followerID'),
             'created_at'       => date('Y-m-d H:i:s'),
             'updated_at'       => date('Y-m-d H:i:s')
         ]
