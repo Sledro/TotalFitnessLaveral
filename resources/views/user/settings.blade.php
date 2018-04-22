@@ -30,16 +30,12 @@
                 {{ Form::text('country', $user->country, ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
-                {{ Form::label('dob', 'Date of birth DD/MM/YY') }}
-                {{ Form::text('dob', $user->dob, ['class' => 'form-control']) }}
-        </div>
-        <div class="form-group">
                 {{ Form::label('profession', 'Profession') }}
                 {{ Form::text('profession', $user->profession, ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
                 {{ Form::label('gender', 'Gender') }}
-                {{ Form::text('gender', $user->gender, ['class' => 'form-control']) }}
+                {{ Form::select('gender',[true => 'Male', false => 'Female'], $user->gender,['class' => 'form-control']) }}
         </div>
        
         {{ Form::hidden('uid',  Auth::user()->id) }}

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Newsfeed;
 use Auth;
+
 class UserController extends Controller
 {
     /**
@@ -104,6 +105,9 @@ class UserController extends Controller
  */
 public function follow(Request $request)
 {
+    if (UserFollowers::where('email', '=', Input::get('email'))->exists()) {
+        // user found
+     }
 
     \DB::table('user_followers')->insert([
         [
@@ -140,14 +144,13 @@ public function follow(Request $request)
     {
         $this->validate($request,[
             'uid' => 'required',
-            'name' => 'required',
-            'street' => 'required',
-            'town' => 'required',
-            'county' => 'required',
-            'country' => 'required',
-            'dob' => 'required',
-            'gender' => 'required',
-            'profession' => 'required',
+            'name' => 'required|string|max:150',
+            'street' => 'required|string|max:150',
+            'town' => 'required|string|max:150',
+            'county' => 'required|string|max:150',
+            'country' => 'required|string|max:150',
+            'gender' => 'required|string|max:150',
+            'profession' => 'required|string|max:150',
         ]);
 
         User::where('id', $request->input('uid'))->update([
@@ -156,7 +159,6 @@ public function follow(Request $request)
             'town' => $request->input('town'),
             'county' => $request->input('county'),
             'country' => $request->input('country'),
-            'dob' => $request->input('dob'),
             'gender' => $request->input('gender'),
             'profession' => $request->input('profession')
             ]);
