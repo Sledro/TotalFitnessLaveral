@@ -8,10 +8,7 @@
               <center>Create Message</center>
           </h3>
           <?
-          if(!isset($id))
-          {
-              $id=1;
-          }
+          if(!isset($id)){$id=1;}
           ?>
           <hr style="margin:10px;"></hr>
                   <div class="form-group">

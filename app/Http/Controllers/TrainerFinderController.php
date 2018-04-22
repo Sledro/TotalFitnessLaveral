@@ -88,15 +88,25 @@ class TrainerFinderController extends Controller
 
     public function request(Request $request)
     {
-        \DB::table('trainer_requests')->insert([
-            [
-                'clientID' => $request->input('clientID'),
-                'trainerID' => $request->input('trainerID'),
-                'accepted' => '0'
-            ]
-        ]);
+
+        echo $request->input('trainerID');
+        exit;
+
+        if (\DB::table('trainer_requests')->where('clientID', '=', $request->input('clientID'))->where('trainerID', '=', $request->input('trainerID'))->where('accepted', '=', '0')->exists()) {
+            // user found
+            return redirect()->back()->with('error', 'You already sent a request to this trainer.');
+        }else{
+
+                \DB::table('trainer_requests')->insert([
+                    [
+                        'clientID' => $request->input('clientID'),
+                        'trainerID' => $request->input('trainerID'),
+                        'accepted' => '0'
+                    ]
+                ]);
         
-        return redirect()->back()->with('success', 'Successfully requested this trainer to become your Personal Trainer.');
+                return redirect()->back()->with('success', 'Successfully requested this trainer to become your Personal Trainer.');
+            }
     }
     
 }

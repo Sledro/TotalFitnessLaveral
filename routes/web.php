@@ -47,7 +47,7 @@ Route::get('/client-manager', 'ClientManagerController@index')->middleware('auth
 Route::get('/client-manager/requests', 'ClientManagerController@requests')->middleware('auth');
 Route::resource('ClientManager','ClientManagerController');
 
-Route::put('/trainer-finder/request', 'TrainerFinderController@request')->middleware('auth');
+Route::post('/trainer-finder/request', 'TrainerFinderController@request')->middleware('auth');
 Route::get('/trainer-finder', 'TrainerFinderController@index')->middleware('auth');
 Route::resource('TrainerFinder','TrainerFinderController');
 

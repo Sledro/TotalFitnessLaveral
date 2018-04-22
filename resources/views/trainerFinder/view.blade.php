@@ -22,20 +22,22 @@
                 </thead>
                 <tbody>
                   @foreach($trainers as $trainer)
+                  
                   <tr>
                     <th scope="row">{{$trainer->id}}</th>
                     <td>{{$trainer->name}}</td>
-                    <td>{{$trainer->username}}</td>
+                    <td><a href="./user/{{$trainer->username}}">{{$trainer->username}}</a></td>
                     <td>{{$trainer->email}}</td>
+                    {{ Form::hidden('trainerID', $trainer->id) }}
                     <td>{{ Form::submit('Request Trainer', ['class' => 'btn btn-primary']) }}</td>
                   </tr>
-                  {{ Form::hidden('trainerID', $trainer->id) }}
+                  
                   @endforeach
                 </tbody>
             </table>
 
             {{ Form::hidden('clientID', Auth::user()->id) }}
-            {{ Form::hidden('_method', 'PUT') }}
+            {{ Form::hidden('_method', 'POST') }}
         </center>
     {!! Form::close() !!}
     </div>         

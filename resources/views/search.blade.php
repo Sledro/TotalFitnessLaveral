@@ -16,7 +16,14 @@
 				@foreach($details as $user)
 				<tr>
 					<td><a href="/user/{{$user->username}}">{{$user->name}}</a></td>
-					<td>{{$user->county}}, {{$user->town}}</td>
+					<td>
+						@if(!$user->county=="")
+							{{$user->county}} {{$user->town}}
+						@else
+							None
+						@endif
+					
+					</td>
 				</tr>
 				@endforeach
 			</tbody>
