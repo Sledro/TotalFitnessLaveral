@@ -25,8 +25,8 @@
                   @foreach($mail as $pms)
                   <tr>
                     <th scope="row">{{$pms->id}}</th>
-                    <td>{{$pms->sender->first()->name}}</td>
-                    <td>{{$pms->receiver->first()->name}}</td>
+                    <td><a href="./user/{{$pms->sender->first()->username}}">{{$pms->sender->first()->name}}</a></td>
+                    <td><a href="./user/{{$pms->receiver->first()->username}}">{{$pms->receiver->first()->name}}</a></td>
                     <td>{{$pms->title}}</td>
                     <td>{{$pms->created_at}}</td>
                     <td style="width:150px;"><a href="./mailbox/view/{{$pms->id}}" class="btn btn-primary" >View</a></td>

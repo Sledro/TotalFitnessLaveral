@@ -51,10 +51,12 @@ Route::put('/trainer-finder/request', 'TrainerFinderController@request')->middle
 Route::get('/trainer-finder', 'TrainerFinderController@index')->middleware('auth');
 Route::resource('TrainerFinder','TrainerFinderController');
 
-Route::put('/mailbox/create/sent', 'MailboxController@storeNow')->middleware('auth');
+
 Route::put('/mailbox/reply', 'MailboxController@reply')->middleware('auth');
+
 Route::get('/mailbox', 'MailboxController@index')->middleware('auth');
 Route::get('/mailbox/create/{id}', 'MailboxController@create')->middleware('auth');
+Route::put('/mailbox', 'MailboxController@storeNow')->middleware('auth');
 Route::get('/mailbox/view/{id}', 'MailboxController@show')->middleware('auth');
 Route::resource('Mailbox','MailboxController');
 

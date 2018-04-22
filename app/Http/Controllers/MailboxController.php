@@ -54,7 +54,7 @@ class MailboxController extends Controller
         $post->save();  
 
 
-        return view('mailbox.create')->with('message','Message Sent !');
+        return Redirect::back()->with('success','Message Sent !');
     }
 
     /**
