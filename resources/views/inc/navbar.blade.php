@@ -37,7 +37,7 @@
                                 @else
                                  
                                     Welcome,&nbsp; 
-                                    <a href="/user/@auth{{ Auth::user()->name }}@endauth "  data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <a href="/user/@auth{{ Auth::user()->username }}@endauth " >
                                         {{ Auth::user()->name }} 
                                     </a>&nbsp;
             

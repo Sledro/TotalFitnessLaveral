@@ -35,19 +35,19 @@
                                 <tbody>
                                     <tr>
                                     <td>Personal Trainer</td>
-                                    <td><a href="/user/{{$pt->username}}">{{$pt->name}}</td>
+                                    <td>@if(!$pt="None")<a href="/user/{{$pt->username}}">{{$pt->name}}@endif</td>
                                     </tr>
                                     <tr>
                                     <td>Location</td>
-                                    <td>{{$user->county}}, {{$user->country}}</td>
+                                    <td>@if($user->county!=""){{$user->county}}, {{$user->country}}@endif</td>
                                     </tr>
                                     <tr>
                                     <td>Profession</td>
-                                    <td>{{$user->profession}}</td>
+                                    <td>@if($user->county!=""){{$user->county}}@endif</td>
                                     </tr>
                                     <tr>
                                     <td>Age</td>
-                                    <td>{{\Carbon\Carbon::parse($user->dob)->diff(\Carbon\Carbon::now())->format('%y years, %m months and %d days')}}</td>
+                                    <td>@if($user->dob!=""){{\Carbon\Carbon::parse($user->dob)->diff(\Carbon\Carbon::now())->format('%y years, %m months and %d days')}}@endif</td>
                                     </tr>
                                     <tr>
                                     <tr>

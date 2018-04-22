@@ -72,9 +72,9 @@
             </div>
 
 
-            <div class="form-group{{ $errors->has('isPT') ? ' has-error' : '' }} ">
+            <div class="form-group{{ $errors->has('isPT') ? ' has-error' : '' }} " style="padding-left:7px;">
                 <label for="isPT" style="text-align:left" class="col-md-12 control-label">Are you a Personal Trainer?</label>
-                <select id="isPT" required name="isPT" class="col-md-12 form-control" style="padding:25px;">
+                <select id="isPT" required name="isPT" class="form-control" style="padding:45px;">
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
