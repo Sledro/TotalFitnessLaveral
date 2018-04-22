@@ -17,8 +17,8 @@
                             <i class="fa fa-clock-o"></i>  Written on: {{$post->created_at}}
                         </div>
                     </div>
-                    
-                    <a href="/newsfeed/{{$post->id}}/edit">
+                    @if($post->users->username == Auth::user()->username)
+                        <a href="/newsfeed/{{$post->id}}/edit">
                         <div class="float-right">
                             <button type="button" class="btn btn-default btn-sm">
                                 <span class="glyphicon glyphicon-edit"></span> Edit
@@ -29,6 +29,7 @@
                                 {{Form::submit('Delete', ['class' => 'btn btn-default btn-sm'])}}
                             {!!Form::close()!!}
                         </div>
+                    @endif
                 </div>
             </div>
 @endforeach

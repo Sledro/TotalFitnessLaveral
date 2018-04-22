@@ -68,12 +68,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade in" id="tab2">
-                <h3>This is tab 2</h3>
-                </div>
-                <div class="tab-pane fade in" id="tab3">
-                <h3>This is tab 3</h3>
-                </div>
             </div>
         </div>
         <!--Includes the layout feed that is also on the users profile!-->

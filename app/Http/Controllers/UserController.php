@@ -105,21 +105,23 @@ class UserController extends Controller
  */
 public function follow(Request $request)
 {
-    if (UserFollowers::where('email', '=', Input::get('email'))->exists()) {
+    if (\DB::table('user_followers')->where('userID', '=', $request->input('userID'))->where('followerID', '=', $request->input('followerID'))->exists()) {
         // user found
-     }
+        return redirect()->back()->with('error', 'You are already following this user.');
+     }else{
 
-    \DB::table('user_followers')->insert([
-        [
-            'userID'             => $request->input('userID'),
-            'followerID' => $request->input('followerID'),
-            'created_at'       => date('Y-m-d H:i:s'),
-            'updated_at'       => date('Y-m-d H:i:s')
-        ]
-    ]);
-    
-    return redirect()->back()->with('success', 'Successfully followed the user.');
-    }
+        \DB::table('user_followers')->insert([
+            [
+                'userID'             => $request->input('userID'),
+                'followerID' => $request->input('followerID'),
+                'created_at'       => date('Y-m-d H:i:s'),
+                'updated_at'       => date('Y-m-d H:i:s')
+            ]
+        ]);
+        
+        return redirect()->back()->with('success', 'Successfully followed the user.');
+        }
+}
 
 
     /**
