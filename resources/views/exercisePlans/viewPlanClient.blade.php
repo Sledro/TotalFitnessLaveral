@@ -14,14 +14,17 @@
                 </h3>
                 <!--Iterate through list of user assigned exercise plan!-->      
                 @foreach($exercisePlan as $plans)
+                @if($plans->plan=="")
+                 Rest Day 
+                @endif
                     @foreach($plans->plan as $plan)
                         <!--Iterate through  assigned exercises plan details!-->  
                         @foreach($plan->exercises as $exercises)
                             @if($exercises->day=="Monday")
-                            
+
                                 <!--Iterate through exercises in user plans for Monday!-->  
                                 @foreach($exercises->exercise as $exercise)
-                                    
+
                                     <div id="card-282411">
                                             <div class="card" style="padding:5px;">
                                                 <div class="card-header">

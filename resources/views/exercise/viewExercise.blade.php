@@ -26,7 +26,6 @@
             <p>
             {{$exercise->description}}      
             </p>
-            {{$exercise}}  
         </div>     
 	</div>
 </div>
