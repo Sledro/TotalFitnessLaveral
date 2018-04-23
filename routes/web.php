@@ -32,6 +32,7 @@ Route::resource('user','UserController');
 Route::get('/my-exercise-plan', 'ExercisePlansController@show')->middleware('auth');
 Route::resource('ExercisePlans','ExercisePlansController');
 
+Route::get('/exercises/', 'ExerciseController@index');
 Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
 Route::resource('exercise','ExerciseController');
 

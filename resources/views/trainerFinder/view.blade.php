@@ -29,7 +29,7 @@
                     <td><a href="./user/{{$trainer->username}}">{{$trainer->username}}</a></td>
                     <td>{{$trainer->email}}</td>
                     {{ Form::hidden('trainerID', $trainer->id) }}
-                    <td>{{ Form::submit('Request Trainer', ['class' => 'btn btn-primary']) }}</td>
+                    <td>{{ Form::submit('Request this Personal Trainer', ['class' => 'btn btn-primary']) }}</td>
                   </tr>
                   {{ Form::hidden('clientID', Auth::user()->id) }}
                   {{ Form::hidden('_method', 'POST') }}

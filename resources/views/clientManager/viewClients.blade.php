@@ -27,6 +27,9 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @if($clients->isEmpty())
+                  <tr><td colspan="5">You do not have any clients yet. If a TF User wishes to become your cleint, they will need to send you a client request. You then need to accep that client request. </td></tr>
+                  @endif
                   @foreach($clients as $client)
                   <tr>
                     {!! Form::open(['action' => ['ClientManagerController@updatePlan'], 'method' => 'POST']) !!}

@@ -20,6 +20,9 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @if($requests->isEmpty())
+                  <tr><td colspan="5">You do not have any clients yet. If a TF User wishes to become your cleint, they will need to send you a client request. You then need to accep that client request here in this menu. </td></tr>
+                  @endif
                   @foreach($requests as $request)
                   <tr>
                     <th scope="row">{{$request->id}}</th>

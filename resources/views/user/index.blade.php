@@ -35,7 +35,7 @@
                                 <tbody>
                                     <tr>
                                     <td>Personal Trainer</td>
-                                    <td>@if(!$pt="None")<a href="/user/{{$pt->username}}">{{$pt->name}}@else None assigned. @endif</td>
+                                    <td>@if(!$pt)No Trainer Assigned. @else<a href="/user/{{$pt->username}}">{{$pt->name}} @endif</td>
                                     </tr>
                                     <tr>
                                     <td>Location</td>

@@ -50,14 +50,11 @@ class UserController extends Controller
     {
         $user = User::whereUsername($username)->first();
         $posts =  Newsfeed::orderBy('id', 'desc')->where('userID', '=', $user->id)->take(10)->get();
-        if($user->trainerID!=""){
-            $trainer = User::find($user->trainerID);
-            $PT=$trainer;
-        }else{
-            $PT="None";
+        if($user){
+            $pt = User::find($user->trainerID);
         }
         if($user){
-            return view('user.index')->withUser($user)->with('posts', $posts)->with('pt', $PT);;;
+            return view('user.index')->withUser($user)->with('posts', $posts)->with('pt', $pt);;;
         }else{
            return false;
         }

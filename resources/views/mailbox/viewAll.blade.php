@@ -5,7 +5,7 @@
 <div class="container-fluid">
         <div class="card" style="padding:10px;">
           <h3 style="display: inline-block;margin-top:10px;">
-              <center>Client Manager</center>
+              <center>Mailbox</center>
           </h3>
 
           <hr style="margin:10px;"></hr>
@@ -22,6 +22,9 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @if($mail->isEmpty())
+                  <tr><td colspan="5">You have not yet sent or receive and direct mails. You can send a user a direct mail by clicking on "Private Messafe" on their user profile.</td></tr>
+                  @endif
                   @foreach($mail as $pms)
                   <tr>
                     <th scope="row">{{$pms->id}}</th>

@@ -24,6 +24,9 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @if($plans->isEmpty())
+                  <tr><td colspan="5">You have not yet preated a trining plan. Please create one.</td></tr>
+                  @endif
                   @foreach($plans as $plan)
                   <tr>
                     <th scope="row">{{$plan->id}}</th>

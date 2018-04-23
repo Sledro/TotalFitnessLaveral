@@ -14,7 +14,8 @@ class ExerciseController extends Controller
      */
     public function index()
     {
-        //
+        $exercises = Exercise::get();
+        return view('exercise.viewAllExercises')->with('exercises', $exercises);
     }
 
     /**
