@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                    <a class="card-link"  href="/exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
