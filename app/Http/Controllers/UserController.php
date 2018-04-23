@@ -154,6 +154,7 @@ class UserController extends Controller
             'county' => 'string|max:150|nullable',
             'country' => 'string|max:150|nullable',
             'gender' => 'required|string|max:150',
+            'dob' => 'date',
             'profession' => 'string|max:150|nullable',
         ]);
 
@@ -165,6 +166,7 @@ class UserController extends Controller
             'county' => $request->input('county'),
             'country' => $request->input('country'),
             'gender' => $request->input('gender'),
+            'dob' => $request->input('dob'),
             'profession' => $request->input('profession')
             ]);
 

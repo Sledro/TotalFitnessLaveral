@@ -22,9 +22,9 @@
                 {{ Form::text('town', $user->town, ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
-                        {{ Form::label('county', 'County') }}
-                        {{ Form::text('county', $user->county, ['class' => 'form-control']) }}
-                </div>
+                {{ Form::label('county', 'County') }}
+                {{ Form::text('county', $user->county, ['class' => 'form-control']) }}
+        </div>
         <div class="form-group">
                 {{ Form::label('country', 'Country') }}
                 {{ Form::text('country', $user->country, ['class' => 'form-control']) }}
@@ -32,6 +32,10 @@
         <div class="form-group">
                 {{ Form::label('profession', 'Profession') }}
                 {{ Form::text('profession', $user->profession, ['class' => 'form-control']) }}
+        </div>
+        <div class="form-group">
+                {{ Form::label('dob', 'Date of Dirth') }}
+                {{ Form::date('dob', $user->dob, ['class' => 'form-control']) }}
         </div>
         <div class="form-group">
                 {{ Form::label('gender', 'Gender') }}
