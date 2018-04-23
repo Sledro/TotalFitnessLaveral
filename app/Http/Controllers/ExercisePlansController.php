@@ -20,7 +20,7 @@ class ExercisePlansController extends Controller
      */
     public function index()
     {
-        $plans = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->get();
+        $plans = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->where('deleted', '0')->get();
         return view('exercisePlans.viewPlansTrainer')->with('plans', $plans);
     }
 
@@ -141,13 +141,24 @@ class ExercisePlansController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Flag as deleted in the db.
      *
-     * @param  \App\cr  $cr
+     * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function delete(Request $request)
     {
-        //
+        //Check is a client is already on this plan
+        $numOfClientsOnPlan = ClientExercisePlans::with('plan')->where('exercisePlanID', $request->input('planID'))->where('active', '1')->get();
+        $plans = ExercisePlan::with('exercises.exercise')->where('trainerID', '=', ''.Auth::user()->id.'')->get();
+        
+        if(count($numOfClientsOnPlan)>0){
+            return redirect('exercise-plan-manager')->with('plans', $plans)->with('error', 'There is at least 1 active user assigned this plan. You cannot delete a plan that has an active user.');
+        }else{
+           
+            ExercisePlan::where('id', $request->input('planID'))->update(['deleted' => '1',]);
+            return redirect('exercise-plan-manager')->with('plans', $plans)->with('success', 'This plan has been successfully deleted.');
+        }
+
     }
 }

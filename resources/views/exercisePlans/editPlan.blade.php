@@ -2,14 +2,21 @@
 
 @section('content')
 <div class="card" style="padding:10px;">
-        {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
         <center><h3 style="margin-top:10px;margin-bottom:20px;">Edit Training Plan
-                {{ Form::submit('Update Plan', ['class' => 'btn btn-primary', 'style' => 'float:right;align:right;margin-right:10px;']) }}
+                {!! Form::open(['action' => ['ExercisePlansController@delete'], 'method' => 'POST']) !!}
                 {{ Form::submit('Delete Plan', ['class' => 'btn btn-danger', 'style' => 'float:right;align:right;margin-right:10px;']) }}
+                {{ Form::hidden('_method', 'PUT') }}
+                {{ Form::hidden('planID', $plan->id) }}
+                {!! Form::close() !!}
+
+
+                {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
+                {{ Form::submit('Update Plan', ['class' => 'btn btn-primary', 'style' => 'float:right;align:right;margin-right:10px;']) }}
+                
                 </h3></center>
     <hr style="margin:10px;"></hr>
 
-
+    {!! Form::open(['action' => ['ExercisePlansController@update', $plan->id], 'method' => 'POST']) !!}
     <div class="form-group">
             {{ Form::label('title', 'Name') }}
             {{ Form::text('title', $plan->name, ['class' => 'form-control', 'placeholder' => 'title']) }}

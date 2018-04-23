@@ -36,6 +36,7 @@ Route::get('/exercises/', 'ExerciseController@index');
 Route::get('/exercise/{id}', 'ExerciseController@show')->name('exercise.show');
 Route::resource('exercise','ExerciseController');
 
+Route::put('/exercise-plan-manager/delete', 'ExercisePlansController@delete')->middleware('auth');
 Route::put('/exercise-plan-manager/create/send', 'ExercisePlansController@store')->middleware('auth');
 Route::get('/exercise-plan-manager/create', 'ExercisePlansController@create')->middleware('auth');
 Route::get('/exercise-plan-manager/edit/{id}', 'ExercisePlansController@edit')->middleware('auth');

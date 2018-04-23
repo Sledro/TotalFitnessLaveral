@@ -17,6 +17,7 @@ class CreateExercisePlansTable extends Migration {
 			$table->integer('id', true);
 			$table->integer('trainerID');
 			$table->string('name', 250);
+			$table->integer('deleted');
 			$table->timestamps();
 		});
 	}
