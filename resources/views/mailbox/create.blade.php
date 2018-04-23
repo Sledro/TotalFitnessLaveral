@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding:0px 0px 0px 0px;">
         <div class="card" style="padding:10px;">
           <h3 style="display: inline-block;margin-top:10px;">
               <center>Create Message</center>

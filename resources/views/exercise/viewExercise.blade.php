@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid" style="padding:0px 0px 0px 0px;">
 	<div class="card">
             <h1>{{$exercise->name}}</h1>
 

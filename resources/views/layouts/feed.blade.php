@@ -1,7 +1,7 @@
 @if(count($posts) >= 1)  
 @foreach($posts as $post)
             <div class="card ">
-                <div class="card-header ">
+                <div class="card-header">
                         <div class="float-left">
                             <img class="usravatar" src="{{asset('img/avatars/default-avatar.png')}}">
                         </div>

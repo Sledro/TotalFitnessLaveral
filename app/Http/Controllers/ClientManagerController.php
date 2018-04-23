@@ -118,17 +118,23 @@ class ClientManagerController extends Controller
 
     public function updatePlan(Request $request)
     {
-        ClientExercisePlans::where('id', $request->clientID)->where('active', '=', '1')->update(['active' => 0]);
+        //Check if user is already assigned this plan.
+        if(ClientExercisePlans::where('userID', $request->clientID)->where('active', '=', '1')
+        ->where('exercisePlanID','=', $request->plansList)->exists()){
+            return redirect()->back()->with('error', 'This client is already currently assigned this plan.');
 
-        $details = new ClientExercisePlans();
-        $details->userID = $request->clientID;
-        $details->exercisePlanID = $request->plansList;
-        $details->active = '1'; 
-        $details->save();
+        }else{
+            //The user is not already assigned this plan so we can proceed and assign them a new plan.
+            ClientExercisePlans::where('userID', $request->clientID)->where('active', '=', '1')->update(['active' => 0]);
+            $details = new ClientExercisePlans();
+            $details->userID = $request->clientID;
+            $details->exercisePlanID = $request->plansList;
+            $details->active = '1'; 
+            $details->save();
+    
+            return redirect()->back()->with('success', 'Successfully assigned this plan to your client.');
+        }
 
-        return redirect()->back()->with('success', 'Successfully assigned this plan to your client.');
     }
-
-
 
 }
