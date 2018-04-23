@@ -24,6 +24,7 @@ class NewsfeedController extends Controller
         ->whereRaw('userid IN ( SELECT userID FROM user_followers WHERE followerID=:userID ) OR userID=:userID2' )
         ->take(10)
         ->setBindings([$userID, $userID2])
+        ->orderBy('created_at', 'desc')
 		->get();
         return view('newsfeed.index')->with('posts', $posts);
     }

@@ -257,8 +257,10 @@
                     </div>  
         @else
         <div class="card">
-            You do not yet have a training plan assigned to you. If you have a personal trainer assigned already you they need to assign a plan to you. 
+            <h3>Oops, you do not yet have a training plan assigned...</h3>
+            <p>You do not yet have a training plan assigned to you. If you have a personal trainer assigned already you they need to assign a plan to you. 
             Otherwise you can find a personal trainer on our <a href="/trainer-finder">Trainer Finder</a>.
+            </p>
         </div>
         @endif
 	</div>
