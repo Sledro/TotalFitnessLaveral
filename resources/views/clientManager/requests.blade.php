@@ -16,7 +16,6 @@
                     <th scope="col">Request ID</th>
                     <th scope="col">User ID</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -24,7 +23,8 @@
                   @foreach($requests as $request)
                   <tr>
                     <th scope="row">{{$request->id}}</th>
-                    <td>{{$request->clientID}}</td>
+                    <td><a href="/user/{{$request->client['username']}}">{{$request->clientID}}</a></td>
+                    <td><a href="/user/{{$request->client['username']}}">{{$request->client['username']}}</a></td>
                     <td>{{ Form::submit('Accept Client', ['class' => 'btn btn-primary']) }}</td>
                   </tr>
                   {{ Form::hidden('requestID', $request->id) }}

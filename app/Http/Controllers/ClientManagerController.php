@@ -98,7 +98,7 @@ class ClientManagerController extends Controller
      */
     public function requests()
     {
-        $requests = TrainerRequests::where('trainerID', '=', ''.Auth::user()->id.'')->where('accepted',"=","0")->get();
+        $requests = TrainerRequests::with('client')->where('trainerID', '=', ''.Auth::user()->id.'')->where('accepted',"=","0")->get();
         return view('clientManager.requests')->with('requests', $requests);
     }
 
