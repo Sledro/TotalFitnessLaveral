@@ -144,18 +144,21 @@ class UserController extends Controller
      */
     public function updateSettings(Request $request)
     {
+
         $this->validate($request,[
             'uid' => 'required',
+            'email' => 'required|string|max:250',
             'name' => 'required|string|max:150',
-            'street' => 'string|max:150',
-            'town' => 'string|max:150',
-            'county' => 'string|max:150',
-            'country' => 'string|max:150',
+            'street' => 'string|max:150|nullable',
+            'town' => 'string|max:150|nullable',
+            'county' => 'string|max:150|nullable',
+            'country' => 'string|max:150|nullable',
             'gender' => 'required|string|max:150',
-            'profession' => 'string|max:150',
+            'profession' => 'string|max:150|nullable',
         ]);
 
         User::where('id', $request->input('uid'))->update([
+            'email' => $request->input('email'),
             'name' => $request->input('name'),
             'street' => $request->input('street'),
             'town' => $request->input('town'),
