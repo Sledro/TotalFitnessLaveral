@@ -15,7 +15,7 @@
                   
                     <div class="jumbotron" style="padding:10px;margin:10px;">
                         <div style="padding:15px;">
-                        <a href="/user/{{$sender->name}}"><h4 style="display:inline;">{{$sender->name}}</h4></a> on {{$pms->created_at}}</a>
+                        <a href="/user/{{$pms->sender->first()->name}}"><h4 style="display:inline;">{{$pms->sender->first()->name}}</h4></a> on {{$pms->created_at}}</a>
                          </div>
                         <div class="card" style="margin:0px;">
                         {{$pms->message}}

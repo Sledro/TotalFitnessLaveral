@@ -18,7 +18,7 @@ class ClientManagerController extends Controller
      */
     public function index()
     {
-        $clients = User::where('trainerID', '=', ''.Auth::user()->id.'')->get();
+        $clients = User::with('plan')->where('trainerID', '=', ''.Auth::user()->id.'')->get();
         $plansList = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->pluck('name', 'id');
         return view('clientManager.viewClients')->with('clients', $clients)->with('plansList', $plansList);
     }

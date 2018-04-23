@@ -30,5 +30,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Newsfeed', 'id', 'userID');
     }
+
+    public function plan()
+    {
+        return $this->hasOne('App\ClientExercisePlans', 'userID', 'id')->where('active', '=', '1');
+    }
     
 }

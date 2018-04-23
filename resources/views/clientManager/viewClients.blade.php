@@ -34,7 +34,7 @@
                     <td>{{$client->name}}</td>
                     <td>{{$client->username}}</td>
                     <td>{{$client->email}}</td>
-                    <td> {{ Form::select('plansList', $plansList) }} <br/></td>
+                    <td> {{ Form::select('plansList', $plansList, $client->plan['exercisePlanID']) }} <br/></td>
                     {{ Form::hidden('clientID', $client->id) }}
                     <td>{{ Form::submit('Update Plan', ['class' => 'btn btn-primary']) }}</td>
                     {{ Form::hidden('_method', 'PUT') }}

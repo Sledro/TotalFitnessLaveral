@@ -89,9 +89,6 @@ class TrainerFinderController extends Controller
     public function request(Request $request)
     {
 
-        echo $request->input('trainerID');
-        exit;
-
         if (\DB::table('trainer_requests')->where('clientID', '=', $request->input('clientID'))->where('trainerID', '=', $request->input('trainerID'))->where('accepted', '=', '0')->exists()) {
             // user found
             return redirect()->back()->with('error', 'You already sent a request to this trainer.');

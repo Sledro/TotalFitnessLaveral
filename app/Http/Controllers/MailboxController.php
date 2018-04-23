@@ -65,11 +65,9 @@ class MailboxController extends Controller
      */
     public function show($id)
     {
-        $message = MailboxMessages::where('mailboxID', '=', $id)->get();
-        $mail = Mailbox::find($id);
-        $sender= User::find($mail->senderID);
-        $receiver= User::find($mail->receiverID);
-        return view('mailbox.viewMessage')->with('mail', $mail)->with('message', $message)->with('sender', $sender)->with('receiver', $receiver);
+        $message = MailboxMessages::with('sender')->where('mailboxID', '=', $id)->get();
+        $mail = Mailbox::with('sender')->find($id);
+        return view('mailbox.viewMessage')->with('mail', $mail)->with('message', $message);
     }
 
     /**
