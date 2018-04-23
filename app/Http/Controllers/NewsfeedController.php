@@ -111,8 +111,8 @@ class NewsfeedController extends Controller
     public function destroy($id)
     {
         $post = Newsfeed::find($id);
-        $post->delete;
-        return redirect ('/newsfeed')->with('success', "Post Updated!");
+        $post->delete();
+        return redirect ('/newsfeed')->with('success', "Post Deleted!");
     }
 
 

@@ -39,7 +39,13 @@
                     <td>{{ Form::submit('Update Plan', ['class' => 'btn btn-primary']) }}</td>
                     {{ Form::hidden('_method', 'PUT') }}
                     {!! Form::close() !!}
-                    <td style="width:150px;"><a href="./exercise-plan-manager/edit/{{$client->id}}" class="btn btn-danger" >Remove as Client</a></td>
+                    <td style="width:150px;">
+                    {!!Form::open(['action' => ['ClientManagerController@remove'], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                    {{Form::hidden('_method', 'PUT')}}
+                    {{Form::hidden('clientID', $client->id)}}
+                    {{Form::submit('Remove as Client', ['class' => 'btn btn-danger btn-sm'])}}
+                    {!!Form::close()!!}
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

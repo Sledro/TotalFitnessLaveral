@@ -43,6 +43,7 @@ Route::resource('ExercisePlans','ExercisePlansController');
 
 Route::put('/client-manager/update', 'ClientManagerController@updatePlan')->middleware('auth');
 Route::put('/client-manager/accept', 'ClientManagerController@accept')->middleware('auth');
+Route::put('/client-manager/remove', 'ClientManagerController@remove')->middleware('auth');
 Route::get('/client-manager', 'ClientManagerController@index')->middleware('auth');
 Route::get('/client-manager/requests', 'ClientManagerController@requests')->middleware('auth');
 Route::resource('ClientManager','ClientManagerController');

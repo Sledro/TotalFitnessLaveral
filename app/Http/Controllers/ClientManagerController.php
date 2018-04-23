@@ -67,17 +67,18 @@ class ClientManagerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Remove the trainerID from the users table.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\ClientManager  $clientManager
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function remove(Request $request)
     {
-        echo $request->plansList;
-        echo $request->clientID;
-        exit();
+        User::where('id', $request->clientID)->update(['trainerID' => '0']);
+        $clients = User::with('plan')->where('trainerID', '=', ''.Auth::user()->id.'')->get();
+        $plansList = ExercisePlan::where('trainerID', '=', ''.Auth::user()->id.'')->pluck('name', 'id');
+        return view('clientManager.viewClients')->with('clients', $clients)->with('plansList', $plansList)->with('success', 'Client has been removed!');
     }
 
     /**
@@ -86,9 +87,9 @@ class ClientManagerController extends Controller
      * @param  \App\ClientManager  $clientManager
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClientManager $clientManager)
+    public function destroy($id)
     {
-        //
+
     }
 
     /**
