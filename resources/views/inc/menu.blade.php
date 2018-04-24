@@ -66,11 +66,18 @@
                             </li>
                         @endif
                         <li>
+                                <a class="nav-link" href="/exercises/">
+                                    <i class="nc-icon nc-android"></i>
+                                    <p>Exercise List</p>
+                                </a>
+                            </li>
+                        <li>
                             <a class="nav-link" href="/settings">
                                 <i class="nc-icon nc-settings-gear-64"></i>
                                 <p>Settings</p>
                             </a>
                         </li>
+    
                     @else
                     <li class="nav-item active">
                         <a class="nav-link" href="/login">

@@ -13,9 +13,9 @@
             <table class="table table-hover" style="margin:0px auto;">
                 <thead >
                   <tr>
-                    <th scope="col">Client ID</th>
+                    <th class="content-to-hide" scope="col">Client ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Username</th>
+                    <th class="content-to-hide" scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">Request</th>
                   </tr>
@@ -24,12 +24,12 @@
                   @foreach($trainers as $trainer)
                   {!! Form::open(['action' => ['TrainerFinderController@request'], 'method' => 'POST']) !!}
                   <tr>
-                    <th scope="row">{{$trainer->id}}</th>
+                    <th class="content-to-hide" scope="row">{{$trainer->id}}</th>
                     <td>{{$trainer->name}}</td>
-                    <td><a href="./user/{{$trainer->username}}">{{$trainer->username}}</a></td>
+                    <td class="content-to-hide" ><a href="./user/{{$trainer->username}}">{{$trainer->username}}</a></td>
                     <td>{{$trainer->email}}</td>
                     {{ Form::hidden('trainerID', $trainer->id) }}
-                    <td>{{ Form::submit('Request this Personal Trainer', ['class' => 'btn btn-primary']) }}</td>
+                    <td>{{ Form::submit('Request', ['class' => 'btn btn-primary']) }}</td>
                   </tr>
                   {{ Form::hidden('clientID', Auth::user()->id) }}
                   {{ Form::hidden('_method', 'POST') }}

@@ -13,8 +13,8 @@
             <table class="table table-hover" style="margin:0px auto;">
                 <thead >
                   <tr>
-                    <th scope="col">Request ID</th>
-                    <th scope="col">User ID</th>
+                    <th class="content-to-hide" scope="col">Request ID</th>
+                    <th class="content-to-hide" scope="col">User ID</th>
                     <th scope="col">Username</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -25,8 +25,8 @@
                   @endif
                   @foreach($requests as $request)
                   <tr>
-                    <th scope="row">{{$request->id}}</th>
-                    <td><a href="/user/{{$request->client['username']}}">{{$request->clientID}}</a></td>
+                    <th class="content-to-hide" scope="row">{{$request->id}}</th>
+                    <td class="content-to-hide"><a href="/user/{{$request->client['username']}}">{{$request->clientID}}</a></td>
                     <td><a href="/user/{{$request->client['username']}}">{{$request->client['username']}}</a></td>
                     <td>{{ Form::submit('Accept Client', ['class' => 'btn btn-primary']) }}</td>
                   </tr>

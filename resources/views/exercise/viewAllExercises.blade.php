@@ -14,8 +14,9 @@
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Body Part</th>
+                    <th class="content-to-hide" scope="col">Body Part</th>
                     <th scope="col">Muscle</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -25,7 +26,7 @@
                   @foreach($exercises as $exercise)
                   <tr>
                     <td><a href="./exercise/{{$exercise->id}}">{{$exercise->name}}</a></td>
-                    <td>{{$exercise->bodyPart}}</td>
+                    <td class="content-to-hide">{{$exercise->bodyPart}}</td>
                     <td>{{$exercise->muscle}}</td>
                     <td style="width:150px;"><a href="./exercise/{{$exercise->id}}" class="btn btn-primary" >View</a></td>
                   </tr>

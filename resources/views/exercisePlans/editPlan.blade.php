@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card" style="padding:10px;">
+<div class="card2" style="padding:10px;">
         <center><h3 style="margin-top:10px;margin-bottom:20px;">Edit Training Plan
                 {!! Form::open(['action' => ['ExercisePlansController@delete'], 'method' => 'POST']) !!}
                 {{ Form::submit('Delete Plan', ['class' => 'btn btn-danger', 'style' => 'float:right;align:right;margin-right:10px;']) }}
@@ -23,8 +23,8 @@
     </div>
     
         {{ Form::label('plan', 'Calender Plan') }}<br/>
-        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-            <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+        <div class="col-md-2 mobileMax" style="display:inline-block;padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+            <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                 <h3 style="margin-bottom:3px;">
                     <center>Monday</center>
                     <hr style="margin:10px;"></hr>
@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="/exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                    <a href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -81,8 +81,8 @@
    
 
 
-        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+        <div class="col-md-2 mobileMax" style="display:inline-block;padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                     <h3 style="margin-bottom:3px;">
                         <center>Tuesday</center>
                         <hr style="margin:10px;"></hr>
@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="form-group">    
                                                         {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                        <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                        <a href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                 </div>
                                                 <div class="form-group">    
                                                         {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -139,8 +139,8 @@
 
 
 
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                         <h3 style="margin-bottom:3px;">
                             <center>Wednesday</center>
                             <hr style="margin:10px;"></hr>
@@ -170,7 +170,7 @@
                                                     </div>
                                                     <div class="form-group">    
                                                             {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                            <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                            <a href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                     </div>
                                                     <div class="form-group">    
                                                             {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -197,8 +197,8 @@
 
 
 
-                <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                        <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+                <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                        <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                             <h3 style="margin-bottom:3px;">
                                 <center>Thursday</center>
                                 <hr style="margin:10px;"></hr>
@@ -228,7 +228,7 @@
                                                         </div>
                                                         <div class="form-group">    
                                                                 {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                                <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                                <a class="card2-link"  href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                         </div>
                                                         <div class="form-group">    
                                                                 {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -253,8 +253,8 @@
                     </div>
 
 
-                    <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                            <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+                    <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                            <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                 <h3 style="margin-bottom:3px;">
                                     <center>Friday</center>
                                     <hr style="margin:10px;"></hr>
@@ -284,7 +284,7 @@
                                                             </div>
                                                             <div class="form-group">    
                                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                                    <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                                    <a class="card2-link"  href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                             </div>
                                                             <div class="form-group">    
                                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -311,8 +311,8 @@
 
 
 
-                        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                                <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+                        <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                                <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                     <h3 style="margin-bottom:3px;">
                                         <center>Saturday</center>
                                         <hr style="margin:10px;"></hr>
@@ -342,7 +342,7 @@
                                                                 </div>
                                                                 <div class="form-group">    
                                                                         {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                                        <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                                        <a class="card2-link"  href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                                 </div>
                                                                 <div class="form-group">    
                                                                         {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -370,8 +370,8 @@
 
 
 
-                            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                                    <div class="card" style="padding:10px;background-color:#c7e0fc;width:100%;">
+                            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                                    <div class="card2" style="padding:10px;background-color:#c7e0fc;width:100%;">
                                         <h3 style="margin-bottom:3px;">
                                             <center>Sunday</center>
                                             <hr style="margin:10px;"></hr>
@@ -401,7 +401,7 @@
                                                                     </div>
                                                                     <div class="form-group">    
                                                                             {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                                            <a class="card-link"  href="./exercise/{{$exercise->id}}">Exercise Details</a><br/>
+                                                                            <a class="card2-link"  href="../../exercise/{{$exercise->id}}">Exercise Details</a><br/>
                                                                     </div>
                                                                     <div class="form-group">    
                                                                             {{ Form::label('reps', 'Number of Reps') }} <br/>

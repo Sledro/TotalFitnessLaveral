@@ -13,14 +13,14 @@
           
 
           <hr style="margin:10px;"></hr>
-
-            <table class="table table-hover" style="margin:0px auto;">
+          <div style="overflow-x:auto;">
+            <table class="table table-hover" style="margin:0px auto;" >
                 <thead >
                   <tr>
-                    <th scope="col">Client ID</th>
+                    <th class="content-to-hide" scope="col">Client ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
+                    <th class="content-to-hide" scope="col">Username</th>
+                    <th class="content-to-hide" scope="col">Email</th>
                     <th scope="col">Plan</th>
                     <th scope="col">Update</th>
                     <th scope="col">Remove</th>
@@ -33,13 +33,13 @@
                   @foreach($clients as $client)
                   <tr>
                     {!! Form::open(['action' => ['ClientManagerController@updatePlan'], 'method' => 'POST']) !!}
-                    <th scope="row">{{$client->id}}</th>
+                    <th class="content-to-hide" scope="row">{{$client->id}}</th>
                     <td>{{$client->name}}</td>
-                    <td>{{$client->username}}</td>
-                    <td>{{$client->email}}</td>
-                    <td> {{ Form::select('plansList', $plansList, $client->plan['exercisePlanID']) }} <br/></td>
+                    <td class="content-to-hide">{{$client->username}}</td>
+                    <td class="content-to-hide">{{$client->email}}</td>
+                    <td > {{ Form::select('plansList', $plansList, $client->plan['exercisePlanID']) }} <br/></td>
                     {{ Form::hidden('clientID', $client->id) }}
-                    <td>{{ Form::submit('Update Plan', ['class' => 'btn btn-primary']) }}</td>
+                    <td>{{ Form::submit('Update Client', ['class' => 'btn btn-primary']) }}</td>
                     {{ Form::hidden('_method', 'PUT') }}
                     {!! Form::close() !!}
                     <td style="width:150px;">
@@ -53,6 +53,7 @@
                   @endforeach
                 </tbody>
             </table>
+          </div> 
     </div>         
 </div>
 @endsection

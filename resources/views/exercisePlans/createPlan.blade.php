@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card" style="padding:10px;">
+<div class="card2" style="padding:10px;">
         {!! Form::open(['action' => ['ExercisePlansController@store'], 'method' => 'POST']) !!}
         <center><h3 style="margin-top:10px;margin-bottom:20px;">Create Training Plan
                 {{ Form::submit('Create this Plan', ['class' => 'btn btn-success', 'style' => 'float:right;align:right;margin-right:10px;']) }}
@@ -16,8 +16,8 @@
     </div>
     <div class="form-group">
         {{ Form::label('plan', 'Calender Plan') }}</br>
-        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-            <div class="cardDay1" style="padding:10px;background-color:#c7e0fc;width:100%;">
+        <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+            <div class="card2Day1" style="padding:10px;background-color:#c7e0fc;width:100%;">
                
                 <h3 style="margin-bottom:3px;">
                     <center>Monday</center>
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="form-group">    
                                             {{ Form::label('description', 'Exercise Description') }} <br/>
-                                            <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                            <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                     </div>
                                     <div class="form-group" >    
                                             {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -62,8 +62,8 @@
         </div>
     </div>
 
-        <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                <div class="cardDay2" style="padding:10px;background-color:#c7e0fc;">
+        <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                <div class="card2Day2" style="padding:10px;background-color:#c7e0fc;">
                    
                     <h3 style="margin-bottom:3px;">
                         <center>Tuesday</center>
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="form-group">    
                                                 {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                         </div>
                                         <div class="form-group">    
                                                 {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -108,8 +108,8 @@
             </div>
         </div>
 
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="cardDay3" style="padding:10px;background-color:#c7e0fc;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2Day3" style="padding:10px;background-color:#c7e0fc;">
                        
                         <h3 style="margin-bottom:3px;">
                             <center>Wednesday</center>
@@ -132,7 +132,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                    <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -154,8 +154,8 @@
                 </div>
             </div>
 
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="cardDay4" style="padding:10px;background-color:#c7e0fc;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2Day4" style="padding:10px;background-color:#c7e0fc;">
                        
                         <h3 style="margin-bottom:3px;">
                             <center>Thursday</center>
@@ -178,7 +178,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                    <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -200,8 +200,8 @@
                 </div>
             </div>
 
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="cardDay5" style="padding:10px;background-color:#c7e0fc;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2Day5" style="padding:10px;background-color:#c7e0fc;">
                        
                         <h3 style="margin-bottom:3px;">
                             <center>Friday</center>
@@ -224,7 +224,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                    <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -246,8 +246,8 @@
                 </div>
             </div>
 
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="cardDay6" style="padding:10px;background-color:#c7e0fc;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2Day6" style="padding:10px;background-color:#c7e0fc;">
                        
                         <h3 style="margin-bottom:3px;">
                             <center>Saturday</center>
@@ -270,7 +270,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                    <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -294,8 +294,8 @@
 
 
         
-            <div class="col-md-2" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
-                    <div class="cardDay5" style="padding:10px;background-color:#c7e0fc;">
+            <div class="col-md-2 mobileMax" style="padding:0px 10px 0px 0px;flex:0%;width:14.22%;">
+                    <div class="card2Day5" style="padding:10px;background-color:#c7e0fc;">
                        
                         <h3 style="margin-bottom:3px;">
                             <center>Sunday</center>
@@ -318,7 +318,7 @@
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('description', 'Exercise Description') }} <br/>
-                                                    <a class="card-link"  href="./exercise/">Exercise Details</a><br/>
+                                                    <a class="card2-link"  href="./exercise/">Exercise Details</a><br/>
                                             </div>
                                             <div class="form-group">    
                                                     {{ Form::label('reps', 'Number of Reps') }} <br/>
@@ -394,7 +394,7 @@
                                     "</div>"+
                                     "<div class='form-group'>"+
                                             "<label for='description'>Exrcise Description</label><br/>"+
-                                           " <a class='card-link'  href='./exercise/'>Exercise Details</a><br/>"+
+                                           " <a class='card2-link'  href='./exercise/'>Exercise Details</a><br/>"+
                                            "</div>"+
                                     "<div class='form-group'>"+ 
                                             "<label for='reps[]'>Number of Reps</label><br/>"+
@@ -407,7 +407,7 @@
                                     "<div class='form-group'>"+ 
                                             "<label for='weight[]'>Weight (kg)</label><br/>"+
                                             "<input type='text' name='weight["+value+"][]' size='15'> <br/>"+
-                                            "</div></div></div></div>").appendTo(".cardDay"+value);
+                                            "</div></div></div></div>").appendTo(".card2Day"+value);
             })
         </script>
 @endsection

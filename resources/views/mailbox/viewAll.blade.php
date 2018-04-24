@@ -13,11 +13,11 @@
             <table class="table table-hover" style="margin:0px auto;">
                 <thead >
                   <tr>
-                    <th scope="col">Mail ID</th>
+                    <th class="content-to-hide" scope="col">Mail ID</th>
                     <th scope="col">From</th>
                     <th scope="col">To</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Received On</th>
+                    <th class="content-to-hide" scope="col">Received On</th>
                     <th scope="col">View</th>
                   </tr>
                 </thead>
@@ -27,11 +27,11 @@
                   @endif
                   @foreach($mail as $pms)
                   <tr>
-                    <th scope="row">{{$pms->id}}</th>
+                    <th class="content-to-hide" scope="row">{{$pms->id}}</th>
                     <td><a href="./user/{{$pms->sender->first()->username}}">{{$pms->sender->first()->name}}</a></td>
                     <td><a href="./user/{{$pms->receiver->first()->username}}">{{$pms->receiver->first()->name}}</a></td>
                     <td>{{$pms->title}}</td>
-                    <td>{{$pms->created_at}}</td>
+                    <td class="content-to-hide">{{$pms->created_at}}</td>
                     <td style="width:150px;"><a href="./mailbox/view/{{$pms->id}}" class="btn btn-primary" >View</a></td>
                   </tr>
                   @endforeach

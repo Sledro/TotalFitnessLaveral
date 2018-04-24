@@ -15,10 +15,10 @@
             <table class="table table-hover" style="margin:0px auto;">
                 <thead >
                   <tr>
-                    <th scope="col">Plan ID</th>
+                    <th class="content-to-hide" scope="col">Plan ID</th>
                     <th scope="col">Name</th>
                     <th scope="col"># Active Clients</th>
-                    <th scope="col">Created On</th>
+                    <th class="content-to-hide" scope="col">Created On</th>
                     <th scope="col">Manage</th>
                   </tr>
                 </thead>
@@ -28,10 +28,10 @@
                   @endif
                   @foreach($plans as $plan)
                   <tr>
-                    <th scope="row">{{$plan->id}}</th>
+                    <th class="content-to-hide" scope="row">{{$plan->id}}</th>
                     <td>{{$plan->name}}</td>
                     <td>{{ \App\ClientExercisePlans::where('exercisePlanID', $plan->id)->where('active', '1')->count() }}</td>
-                    <td>{{$plan->created_at}}</td>
+                    <td class="content-to-hide">{{$plan->created_at}}</td>
                     <td><a href="/exercise-plan-manager/edit/{{$plan->id}}" class="btn btn-primary" >Manage</a></td>
                    </tr>
                   @endforeach
