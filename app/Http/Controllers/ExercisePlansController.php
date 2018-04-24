@@ -135,9 +135,25 @@ class ExercisePlansController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request)
     {
-        //
+
+
+       ExercisePlan::where('id', $request->input('planID'))->update(['name' => $request->input('title'),]);
+
+        for($i=1; $i<=7; $i++){
+          if(isset($request->reps[$i][0])){
+            for($j=0; $j<=2; $j++){
+                if(isset($request->reps[$i][$j])){ 
+
+                    ExercisePlanDetails::where('id', $request->input('planDetailsID'))->update(['reps' => $request->reps[$i][$j],'sets' => $request->sets[$i][$j],'weight' => $request->weight[$i][$j],'exerciseID' => $request->exerciseList[$i][$j],]);
+                     return redirect()->back()->with('success', 'This plan has been successfully updated.');
+                }
+            }
+          }
+        }
+
+        return redirect()->back()->with('error', 'There was an error updating this plan.');
     }
 
     /**
